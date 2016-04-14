@@ -34,7 +34,7 @@ public class Timer {
 		return (float)time/60f;
 	}
 	public void move(Graphics2D g2, JFrame fr){
-		++time;
+		time ++;
 		float sec = getSec();
 		g2.setFont(new Font(Font.SERIF, Font.PLAIN, 24));
 		g2.setColor(Color.black);
