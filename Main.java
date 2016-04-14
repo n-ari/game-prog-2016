@@ -48,6 +48,7 @@ class Main {
 
     // 無限ループ
     while(true){
+      long beg = System.nanoTime();
       for(int i=0;i<256;++i){
         keybef[i] = keynow[i];
         keynow[i] = keynext[i];
@@ -59,35 +60,87 @@ class Main {
       g2 = (Graphics2D)fr.getContentPane().getGraphics();
       g2.drawImage(buf,0,0,fr);
       // 60FPS用
+      long range = System.nanoTime() - beg;
+      long sleeptime = (16666666L - range)/1000000L;
+      if(sleeptime < 0) sleeptime = 0;
       try{
-        Thread.sleep(16);
+        Thread.sleep(sleeptime);
       } catch (Exception e){
         e.printStackTrace();
       }
     }
   }
-  public int x = 0;
+  public int x = 400,y = 300;
+  public int time = 0;
+  // state 0:Title 1:Game 2:Result
+  public int state = 0;       // 追加
   public void move(){
-    if(isPressed(KeyEvent.VK_Z)){
-      x -= 3;
-    }
-    if(isPressed(KeyEvent.VK_X)){
-      x += 3;
-    }
     Graphics2D g2 = (Graphics2D)buf.getGraphics();
-    int w = dman.getWidth(null);
-    int h = dman.getHeight(null);
-    g2.drawImage(dman,x,0,w,h,null);
+    if(state==0){
+      g2.setColor(Color.black);
+      g2.setFont(new Font(Font.SERIF, Font.PLAIN, 48));
+      g2.drawString("ゲーム入門制作",30,100);
 
-    g2.setColor(new Color(255,0,0));
-    g2.fillRect(10,100,100,20);
+      g2.setFont(new Font(Font.SERIF, Font.PLAIN, 24));
+      g2.drawString("Zキーを押してスタート",400,400);
 
-    g2.setColor(Color.blue);
-    g2.drawOval(140,40,20,20);
+      if(onPressed(KeyEvent.VK_Z)){
+        state = 1;
+        x = 400;
+        y = 300;
+        time = 0;
+      }
+    }else if(state == 1){
+      int v = 6;
+      int w = dman.getWidth(fr)/4;
+      int h = dman.getHeight(fr)/4;
+      if(isPressed(KeyEvent.VK_RIGHT)){
+        x += v;
+      }
+      if(isPressed(KeyEvent.VK_LEFT)){
+        x -= v;
+      }
+      if(isPressed(KeyEvent.VK_DOWN)){
+        y += v;
+      }
+      if(isPressed(KeyEvent.VK_UP)){
+        y -= v;
+      }
+      // 画面外に出さない
+      if(x>800-w) x = 800-w;
+      if(x<0) x = 0;
+      if(y>600-h) y = 600-h;
+      if(y<0) y = 0;
+      g2.drawImage(dman,x,y,w,h,fr);
 
-    g2.setColor(Color.green);
-    g2.setFont(new Font(Font.SERIF, Font.PLAIN, 36));
-    g2.drawString("D言語くん in Java",400,600);
+      time ++;
+      float sec = (float)time/60f;
+      g2.setFont(new Font(Font.SERIF, Font.PLAIN, 24));
+      g2.setColor(Color.black);
+      g2.drawString(String.format("%.5f秒",sec),0,25);
+
+      // 今のところ便宜的にXキーを押すとゲームオーバーとする
+      if(onPressed(KeyEvent.VK_X)){
+        state = 2;
+      }
+    }else if(state == 2){
+      g2.setColor(Color.black);
+      g2.setFont(new Font(Font.SERIF, Font.PLAIN, 32));
+      g2.drawString("ゲームオーバー",30,100);
+
+      float sec = (float)time/60f;
+      g2.setColor(Color.red);
+      g2.setFont(new Font(Font.SERIF, Font.PLAIN, 48));
+      g2.drawString(String.format("スコア : %05.5f 秒",sec),100,200);
+      
+      g2.setColor(Color.black);
+      g2.setFont(new Font(Font.SERIF, Font.PLAIN, 24));
+      g2.drawString("Zキーを押してスタート",400,400);
+      
+      if(onPressed(KeyEvent.VK_Z)){
+        state = 0;
+      }
+    }
   }
 
   // 以下コピペ

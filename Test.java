@@ -1,9 +1,10 @@
 import java.awt.*;
 import javax.swing.*;
-import java.awt.image.BufferedImage;
 
 import java.io.File;
 import javax.imageio.ImageIO;
+
+import java.awt.image.BufferedImage;
 
 import java.awt.event.*;
 
@@ -25,7 +26,7 @@ class Test {
       keybef[i] = keynow[i] = keynext[i] = false;
 
     // ウィンドウ生成
-    fr = new JFrame();
+    fr = new JFrame("タイトル");
     // 閉じるボタンの挙動設定
     fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     // ウィンドウサイズ変更不可に
@@ -40,6 +41,7 @@ class Test {
     fr.addKeyListener(new keyclass());
 
     try{
+      // このtryの中で画像を読み込む
       dman = ImageIO.read(new File("d3.png"));
     }catch(Exception e){
       e.printStackTrace();
@@ -47,6 +49,7 @@ class Test {
 
     // 無限ループ
     while(true){
+      long beg = System.nanoTime();
       for(int i=0;i<256;++i){
         keybef[i] = keynow[i];
         keynow[i] = keynext[i];
@@ -58,8 +61,11 @@ class Test {
       g2 = (Graphics2D)fr.getContentPane().getGraphics();
       g2.drawImage(buf,0,0,fr);
       // 60FPS用
+      long range = System.nanoTime() - beg;
+      long sleeptime = (16666666L - range)/1000000L;
+      if(sleeptime < 0) sleeptime = 0;
       try{
-        Thread.sleep(16);
+        Thread.sleep(sleeptime);
       } catch (Exception e){
         e.printStackTrace();
       }
@@ -68,13 +74,15 @@ class Test {
   public int x = 0;
   public void move(){
     if(isPressed(KeyEvent.VK_Z)){
-      System.out.println("Hi");
+      x -= 3;
+    }
+    if(isPressed(KeyEvent.VK_X)){
+      x += 3;
     }
     Graphics2D g2 = (Graphics2D)buf.getGraphics();
     int w = dman.getWidth(null);
     int h = dman.getHeight(null);
     g2.drawImage(dman,x,0,w,h,null);
-    x += 3;
 
     g2.setColor(new Color(255,0,0));
     g2.fillRect(10,100,100,20);
@@ -86,7 +94,6 @@ class Test {
     g2.setFont(new Font(Font.SERIF, Font.PLAIN, 36));
     g2.drawString("D言語くん in Java",400,600);
   }
-
 
   public boolean isPressed(int key){
     return keynow[key];

@@ -80,11 +80,15 @@ class Main {
 
     // 無限ループ
     while(true){
+      long beg = System.nanoTime();
       // ここがメインの処理！
       move();
       // 60FPS用
+      long range = System.nanoTime() - beg;
+      long sleeptime = (16666666L - range)/1000000L;
+      if(sleeptime < 0) sleeptime = 0;
       try{
-        Thread.sleep(16);
+        Thread.sleep(sleeptime);
       } catch (Exception e){
         e.printStackTrace();
       }
@@ -99,15 +103,19 @@ class Main {
 
 とりあえずウィンドウが表示されました！！
 
+mainメソッドの中で、なんかやっていますが、これは特に気にしないでください。しいていうなら、staticメソッドからはstaticメソッドしか呼べないという制約があるため、それを回避するために使っています
+
 ウィンドウ生成の部分は「こういうものなんだ」ととりあえず覚えてください。
 
 コピペで構いません。詳しい意味を知ってる人は5割もいないと思います。
 
 その後、while(true)を使うことで「無限ループ」を起こします
 
-無限ループをするとPCがフリーズしてしまいますが、try-catchの中のThread.sleep(16)で毎回16ミリ秒休憩するようにしています
+無限ループをするとPCがフリーズしてしまいますが、try-catchの中のThread.sleep()で毎回16ミリ秒休憩するようにしています
 
 そのためフリーズしないのです
+
+なお、その前の計算処理等で数ミリ秒使ってしまっている場合を考えて、System.nanoTime()で実行時間を計測しておき、その分を16ミリ秒から削っておくことで、全体として毎フレーム16ミリ秒を実現しています
 
 もし無限ループがないと、すぐにrunメソッドが終了してしまいます、するとウィンドウも消えてしまいます！
 
@@ -259,7 +267,16 @@ class Main {
   public JFrame fr;
   public Image dman;          // 追加
   public void run(){
-    // (中略)
+    // ウィンドウ生成
+    fr = new JFrame("タイトル");
+    // 閉じるボタンの挙動設定
+    fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    // ウィンドウサイズ変更不可に
+    fr.setResizable(false);
+    // ウィンドウの中身のサイズを調節 ここでは横800 x 縦600
+    fr.getContentPane().setPreferredSize(new Dimension(800, 600));
+    // 表示
+    fr.setVisible(true);
     // サイズ調整
     fr.pack();
 
@@ -271,7 +288,21 @@ class Main {
       e.printStackTrace();
     }
 
-    // (中略)
+    // 無限ループ
+    while(true){
+      long beg = System.nanoTime();
+      // ここがメインの処理！
+      move();
+      // 60FPS用
+      long range = System.nanoTime() - beg;
+      long sleeptime = (16666666L - range)/1000000L;
+      if(sleeptime < 0) sleeptime = 0;
+      try{
+        Thread.sleep(sleeptime);
+      } catch (Exception e){
+        e.printStackTrace();
+      }
+    }
   }
   public void move(){
     Graphics2D g2 = (Graphics2D)fr.getContentPane().getGraphics();
@@ -332,10 +363,29 @@ class Main {
     // 追加
     buf = new BufferedImage(800,600,BufferedImage.TYPE_INT_ARGB);
 
-    // (中略)
+    // ウィンドウ生成
+    fr = new JFrame("タイトル");
+    // 閉じるボタンの挙動設定
+    fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    // ウィンドウサイズ変更不可に
+    fr.setResizable(false);
+    // ウィンドウの中身のサイズを調節 ここでは横800 x 縦600
+    fr.getContentPane().setPreferredSize(new Dimension(800, 600));
+    // 表示
+    fr.setVisible(true);
+    // サイズ調整
+    fr.pack();
+
+    try{
+      // このtryの中で画像を読み込む
+      dman = ImageIO.read(new File("d3.png"));
+    }catch(Exception e){
+      e.printStackTrace();
+    }
 
     // 無限ループ
     while(true){
+      long beg = System.nanoTime();
       Graphics2D g2 = (Graphics2D)buf.getGraphics();        // 追加
       g2.setColor(Color.white);                             // 追加
       g2.fillRect(0,0,800,600);                             // 追加
@@ -343,8 +393,11 @@ class Main {
       g2 = (Graphics2D)fr.getContentPane().getGraphics();   // 追加
       g2.drawImage(buf,0,0,fr);                             // 追加
       // 60FPS用
+      long range = System.nanoTime() - beg;
+      long sleeptime = (16666666L - range)/1000000L;
+      if(sleeptime < 0) sleeptime = 0;
       try{
-        Thread.sleep(16);
+        Thread.sleep(sleeptime);
       } catch (Exception e){
         e.printStackTrace();
       }
@@ -408,23 +461,50 @@ class Main {
     for(int i=0;i<256;++i)
       keybef[i] = keynow[i] = keynext[i] = false;
 
-    // (中略)
-
+    // ウィンドウ生成
+    fr = new JFrame("タイトル");
+    // 閉じるボタンの挙動設定
+    fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    // ウィンドウサイズ変更不可に
+    fr.setResizable(false);
+    // ウィンドウの中身のサイズを調節 ここでは横800 x 縦600
+    fr.getContentPane().setPreferredSize(new Dimension(800, 600));
+    // 表示
+    fr.setVisible(true);
     // サイズ調整
     fr.pack();
     // キーリスナー登録
     fr.addKeyListener(new keyclass());        // 追加
 
-    // (中略)
+    try{
+      // このtryの中で画像を読み込む
+      dman = ImageIO.read(new File("d3.png"));
+    }catch(Exception e){
+      e.printStackTrace();
+    }
 
     // 無限ループ
     while(true){
+      long beg = System.nanoTime();
       for(int i=0;i<256;++i){     // 追加
         keybef[i] = keynow[i];    // 追加
         keynow[i] = keynext[i];   // 追加
       }                           // 追加
-
-      // (中略)
+      Graphics2D g2 = (Graphics2D)buf.getGraphics();
+      g2.setColor(Color.white);
+      g2.fillRect(0,0,800,600);
+      move();
+      g2 = (Graphics2D)fr.getContentPane().getGraphics();
+      g2.drawImage(buf,0,0,fr);
+      // 60FPS用
+      long range = System.nanoTime() - beg;
+      long sleeptime = (16666666L - range)/1000000L;
+      if(sleeptime < 0) sleeptime = 0;
+      try{
+        Thread.sleep(sleeptime);
+      } catch (Exception e){
+        e.printStackTrace();
+      }
     }
   }
   public void move(){
@@ -496,7 +576,7 @@ class Main {
       keybef[i] = keynow[i] = keynext[i] = false;
 
     // ウィンドウ生成
-    fr = new JFrame();
+    fr = new JFrame("タイトル");
     // 閉じるボタンの挙動設定
     fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     // ウィンドウサイズ変更不可に
@@ -511,6 +591,7 @@ class Main {
     fr.addKeyListener(new keyclass());
 
     try{
+      // このtryの中で画像を読み込む
       dman = ImageIO.read(new File("d3.png"));
     }catch(Exception e){
       e.printStackTrace();
@@ -518,6 +599,7 @@ class Main {
 
     // 無限ループ
     while(true){
+      long beg = System.nanoTime();
       for(int i=0;i<256;++i){
         keybef[i] = keynow[i];
         keynow[i] = keynext[i];
@@ -529,8 +611,11 @@ class Main {
       g2 = (Graphics2D)fr.getContentPane().getGraphics();
       g2.drawImage(buf,0,0,fr);
       // 60FPS用
+      long range = System.nanoTime() - beg;
+      long sleeptime = (16666666L - range)/1000000L;
+      if(sleeptime < 0) sleeptime = 0;
       try{
-        Thread.sleep(16);
+        Thread.sleep(sleeptime);
       } catch (Exception e){
         e.printStackTrace();
       }
@@ -560,7 +645,6 @@ class Main {
     g2.drawString("D言語くん in Java",400,600);
   }
 
-  // 以下コピペ
   public boolean isPressed(int key){
     return keynow[key];
   }
