@@ -444,9 +444,9 @@ class Main {
 	public int x = 0;
 	public void move(){
 		Graphics2D g2 = (Graphics2D)buf.getGraphics();					// 変更
-		int w = dman.getWidth(null);
-		int h = dman.getHeight(null);
-		g2.drawImage(dman,x,0,w,h,null);								// 動かすように
+		int w = dman.getWidth(fr);
+		int h = dman.getHeight(fr);
+		g2.drawImage(dman,x,0,w,h,fr);								// 動かすように
 		x += 3;
 	}
 }
@@ -683,9 +683,9 @@ class Main {
 			x += 3;
 		}
 		Graphics2D g2 = (Graphics2D)buf.getGraphics();
-		int w = dman.getWidth(null);
-		int h = dman.getHeight(null);
-		g2.drawImage(dman,x,0,w,h,null);
+		int w = dman.getWidth(fr);
+		int h = dman.getHeight(fr);
+		g2.drawImage(dman,x,0,w,h,fr);
 
 		g2.setColor(new Color(255,0,0));
 		g2.fillRect(10,100,100,20);
