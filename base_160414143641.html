@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>base.md—/Users/mba/space/gameprog</title>
+    <style type="text/css">
+    html{font-family: sans-serif;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%}body{margin: 0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display: block}audio,canvas,progress,video{display: inline-block;vertical-align: baseline}audio:not([controls]){display: none;height: 0}[hidden],template{display: none}a{background: transparent}a:active,a:hover{outline: 0}abbr[title]{border-bottom: 1px dotted}b,strong{font-weight: bold}dfn{font-style: italic}h1{font-size: 2em;margin: 0.67em 0}mark{background: #ff0;color: #000}small{font-size: 80%}sub,sup{font-size: 75%;line-height: 0;position: relative;vertical-align: baseline}sup{top: -0.5em}sub{bottom: -0.25em}img{border: 0}svg:not(:root){overflow: hidden}figure{margin: 1em 40px}hr{box-sizing: content-box;height: 0}pre{overflow: auto}code,kbd,pre,samp{font-family: monospace, monospace;font-size: 1em}button,input,optgroup,select,textarea{color: inherit;font: inherit;margin: 0}button{overflow: visible}button,select{text-transform: none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance: button;cursor: pointer}button[disabled],html input[disabled]{cursor: default}button::-moz-focus-inner,input::-moz-focus-inner{border: 0;padding: 0}input{line-height: normal}input[type="checkbox"],input[type="radio"]{box-sizing: border-box;padding: 0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height: auto}input[type="search"]{-webkit-appearance: textfield;box-sizing: content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance: none}fieldset{border: 1px solid #c0c0c0;margin: 0 2px;padding: 0.35em 0.625em 0.75em}legend{border: 0;padding: 0}textarea{overflow: auto}optgroup{font-weight: bold}table{border-collapse: collapse;border-spacing: 0}td,th{padding: 0}*{box-sizing: border-box}input,select,textarea,button{font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"}body{min-width: 1020px;font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";color: #333;background-color: #fff}a{color: #4183c4;text-decoration: none}a:hover,a:active{text-decoration: underline}hr,.rule{height: 0;margin: 15px 0;overflow: hidden;background: transparent;border: 0;border-bottom: 1px solid #ddd}hr:before,.rule:before{display: table;content: ""}hr:after,.rule:after{display: table;clear: both;content: ""}h1,h2,h3,h4,h5,h6{margin-top: 15px;margin-bottom: 15px;line-height: 1.1}h1{font-size: 30px}h2{font-size: 21px}h3{font-size: 16px}h4{font-size: 14px}h5{font-size: 12px}h6{font-size: 11px}small{font-size: 90%}blockquote{margin: 0}.lead{margin-bottom: 30px;font-size: 20px;font-weight: 300;color: #555}.text-muted{color: #999}.text-danger{color: #bd2c00}.text-emphasized{font-weight: bold;color: #333}ul,ol{padding: 0;margin-top: 0;margin-bottom: 0}ol ol,ul ol{list-style-type: lower-roman}ul ul ol,ul ol ol,ol ul ol,ol ol ol{list-style-type: lower-alpha}dd{margin-left: 0}tt,code{font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;font-size: 12px}pre{margin-top: 0;margin-bottom: 0;font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace}#realtime .status{overflow: visible;position: absolute;top: -5px;left: 0;background: url("/public/images/github-status.png");width: 26px;height: 26px;display: block;margin: 0 5px 0 0}#realtime .up{background-position: 0 0}#realtime .problem{background-position: 0 -53px}#realtime .down{background-position: 0 -26px}.container{max-width: 920px;margin: 0 auto 20px auto}#header{background: #FAFAFA;background: -moz-linear-gradient(#FAFAFA, #EAEAEA);background: -webkit-linear-gradient(#FAFAFA, #EAEAEA);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#eaeaea')";border-bottom: 1px solid #CACACA;box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4),0 0 10px rgba(0, 0, 0, 0.1)}#markup{padding: 3px}#markup article{padding-top: 30px}.markdown-body{overflow: hidden;font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;font-size: 16px;line-height: 1.6;word-wrap: break-word}.markdown-body>*:first-child{margin-top: 0 !important}.markdown-body>*:last-child{margin-bottom: 0 !important}.markdown-body .absent{color: #c00}.markdown-body .anchor{position: absolute;top: 0;left: 0;display: block;padding-right: 6px;padding-left: 30px;margin-left: -30px}.markdown-body .anchor:focus{outline: none}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{position: relative;margin-top: 1em;margin-bottom: 16px;font-weight: bold;line-height: 1.4}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{display: none;color: #000;vertical-align: middle}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{padding-left: 8px;margin-left: -30px;text-decoration: none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{display: inline-block}.markdown-body h1 tt,.markdown-body h1 code,.markdown-body h2 tt,.markdown-body h2 code,.markdown-body h3 tt,.markdown-body h3 code,.markdown-body h4 tt,.markdown-body h4 code,.markdown-body h5 tt,.markdown-body h5 code,.markdown-body h6 tt,.markdown-body h6 code{font-size: inherit}.markdown-body h1{padding-bottom: 0.3em;font-size: 2.25em;line-height: 1.2;border-bottom: 1px solid #eee}.markdown-body h1 .anchor{line-height: 1}.markdown-body h2{padding-bottom: 0.3em;font-size: 1.75em;line-height: 1.225;border-bottom: 1px solid #eee}.markdown-body h2 .anchor{line-height: 1}.markdown-body h3{font-size: 1.5em;line-height: 1.43}.markdown-body h3 .anchor{line-height: 1.2}.markdown-body h4{font-size: 1.25em}.markdown-body h4 .anchor{line-height: 1.2}.markdown-body h5{font-size: 1em}.markdown-body h5 .anchor{line-height: 1.1}.markdown-body h6{font-size: 1em;color: #777}.markdown-body h6 .anchor{line-height: 1.1}.markdown-body p,.markdown-body blockquote,.markdown-body ul,.markdown-body ol,.markdown-body dl,.markdown-body table,.markdown-body pre{margin-top: 0;margin-bottom: 16px}.markdown-body hr{height: 4px;padding: 0;margin: 16px 0;background-color: #e7e7e7;border: 0 none}.markdown-body ul,.markdown-body ol{padding-left: 2em}.markdown-body ul.no-list,.markdown-body ol.no-list{padding: 0;list-style-type: none}.markdown-body ul ul,.markdown-body ul ol,.markdown-body ol ol,.markdown-body ol ul{margin-top: 0;margin-bottom: 0}.markdown-body li>p{margin-top: 16px}.markdown-body dl{padding: 0}.markdown-body dl dt{padding: 0;margin-top: 16px;font-size: 1em;font-style: italic;font-weight: bold}.markdown-body dl dd{padding: 0 16px;margin-bottom: 16px}.markdown-body blockquote{padding: 0 15px;color: #777;border-left: 4px solid #ddd}.markdown-body blockquote>:first-child{margin-top: 0}.markdown-body blockquote>:last-child{margin-bottom: 0}.markdown-body table{display: block;width: 100%;overflow: auto;word-break: normal;word-break: keep-all}.markdown-body table th{font-weight: bold}.markdown-body table th,.markdown-body table td{padding: 6px 13px;border: 1px solid #ddd}.markdown-body table tr{background-color: #fff;border-top: 1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color: #f8f8f8}.markdown-body img{max-width: 100%;box-sizing: border-box}.markdown-body span.frame{display: block;overflow: hidden}.markdown-body span.frame>span{display: block;float: left;width: auto;padding: 7px;margin: 13px 0 0;overflow: hidden;border: 1px solid #ddd}.markdown-body span.frame span img{display: block;float: left}.markdown-body span.frame span span{display: block;padding: 5px 0 0;clear: both;color: #333}.markdown-body span.align-center{display: block;overflow: hidden;clear: both}.markdown-body span.align-center>span{display: block;margin: 13px auto 0;overflow: hidden;text-align: center}.markdown-body span.align-center span img{margin: 0 auto;text-align: center}.markdown-body span.align-right{display: block;overflow: hidden;clear: both}.markdown-body span.align-right>span{display: block;margin: 13px 0 0;overflow: hidden;text-align: right}.markdown-body span.align-right span img{margin: 0;text-align: right}.markdown-body span.float-left{display: block;float: left;margin-right: 13px;overflow: hidden}.markdown-body span.float-left span{margin: 13px 0 0}.markdown-body span.float-right{display: block;float: right;margin-left: 13px;overflow: hidden}.markdown-body span.float-right>span{display: block;margin: 13px auto 0;overflow: hidden;text-align: right}.markdown-body code,.markdown-body tt{padding: 0;padding-top: 0.2em;padding-bottom: 0.2em;margin: 0;font-size: 85%;background-color: rgba(0,0,0,0.04);border-radius: 3px}.markdown-body code:before,.markdown-body code:after,.markdown-body tt:before,.markdown-body tt:after{letter-spacing: -0.2em;content: "\00a0"}.markdown-body code br,.markdown-body tt br{display: none}.markdown-body del code{text-decoration: inherit}.markdown-body pre>code{padding: 0;margin: 0;font-size: 100%;word-break: normal;white-space: pre;background: transparent;border: 0}.markdown-body .highlight{margin-bottom: 16px}.markdown-body .highlight pre,.markdown-body pre{padding: 16px;overflow: auto;font-size: 85%;line-height: 1.45;background-color: #f7f7f7;border-radius: 3px}.markdown-body .highlight pre{margin-bottom: 0;word-break: normal}.markdown-body pre{word-wrap: normal}.markdown-body pre code,.markdown-body pre tt{display: inline;max-width: initial;padding: 0;margin: 0;overflow: initial;line-height: inherit;word-wrap: normal;background-color: transparent;border: 0}.markdown-body pre code:before,.markdown-body pre code:after,.markdown-body pre tt:before,.markdown-body pre tt:after{content: normal}.markdown-body kbd{display: inline-block;padding: 3px 5px;font-size: 11px;line-height: 10px;color: #555;vertical-align: middle;background-color: #fcfcfc;border: solid 1px #ccc;border-bottom-color: #bbb;border-radius: 3px;box-shadow: inset 0 -1px 0 #bbb}.codehilite{background: #ffffff}.codehilite .c{color: #999988;font-style: italic}.codehilite .err{color: #a61717;background-color: #e3d2d2}.codehilite .k{color: #000000;font-weight: bold}.codehilite .o{color: #000000;font-weight: bold}.codehilite .cm{color: #999988;font-style: italic}.codehilite .cp{color: #999999;font-weight: bold}.codehilite .c1{color: #999988;font-style: italic}.codehilite .cs{color: #999999;font-weight: bold;font-style: italic}.codehilite .gd{color: #000000;background-color: #ffdddd}.codehilite .gd .x{color: #000000;background-color: #ffaaaa}.codehilite .ge{color: #000000;font-style: italic}.codehilite .gr{color: #aa0000}.codehilite .gh{color: #999999}.codehilite .gi{color: #000000;background-color: #ddffdd}.codehilite .gi .x{color: #000000;background-color: #aaffaa}.codehilite .go{color: #888888}.codehilite .gp{color: #555555}.codehilite .gs{font-weight: bold}.codehilite .gu{color: #aaaaaa}.codehilite .gt{color: #aa0000}.codehilite .kc{color: #000000;font-weight: bold}.codehilite .kd{color: #000000;font-weight: bold}.codehilite .kp{color: #000000;font-weight: bold}.codehilite .kr{color: #000000;font-weight: bold}.codehilite .kt{color: #445588;font-weight: bold}.codehilite .m{color: #009999}.codehilite .s{color: #d14}.codehilite .na{color: #008080}.codehilite .nb{color: #0086B3}.codehilite .nc{color: #445588;font-weight: bold}.codehilite .no{color: #008080}.codehilite .ni{color: #800080}.codehilite .ne{color: #990000;font-weight: bold}.codehilite .nf{color: #990000;font-weight: bold}.codehilite .nn{color: #555555}.codehilite .nt{color: #000080}.codehilite .nv{color: #008080}.codehilite .ow{color: #000000;font-weight: bold}.codehilite .w{color: #bbbbbb}.codehilite .mf{color: #009999}.codehilite .mh{color: #009999}.codehilite .mi{color: #009999}.codehilite .mo{color: #009999}.codehilite .sb{color: #d14}.codehilite .sc{color: #d14}.codehilite .sd{color: #d14}.codehilite .s2{color: #d14}.codehilite .se{color: #d14}.codehilite .sh{color: #d14}.codehilite .si{color: #d14}.codehilite .sx{color: #d14}.codehilite .sr{color: #009926}.codehilite .s1{color: #d14}.codehilite .ss{color: #990073}.codehilite .bp{color: #999999}.codehilite .vc{color: #008080}.codehilite .vg{color: #008080}.codehilite .vi{color: #008080}.codehilite .il{color: #009999}
+    </style>
+    <style type="text/css">
+      .markdown-body hr{background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC")}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="markup">
+        <article id="content" class="markdown-body">
+          <h1>ゲームプログラミングの基礎の基礎</h1>
+<h2>ゲームとは</h2>
+<p>ここではコンピュータゲームを考えます</p>
+<ul>
+<li>プレイヤーがいる</li>
+<li>コンピュータがある</li>
+<li>プレイヤーがコンピュータを操作する</li>
+<li>コンピュータが応答する</li>
+<li>ディスプレイの表示が変わる</li>
+<li>それに応じてプレイヤーが操作する</li>
+<li>以下ループ</li>
+</ul>
+<p>これがゲーム (あとゲーム性があるというのも大事)</p>
+<h2>GUI</h2>
+<p>ゲームが作りたいですね？</p>
+<p>ウィンドウに画像を表示したり文字を表示したりするゲームが作りたいですね？</p>
+<p>プログラミング入門では何をやりました？</p>
+<div class="codehilite"><pre><span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="o">);</span>
+    <span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;入力した数は&quot;</span><span class="o">+</span><span class="n">n</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre>Hello, World!
+3<span class="o">[</span>Enter<span class="o">]</span>
+入力した数は3
+</pre></div>
+
+
+<p><strong>どう考えても色鮮やかで画像いっぱいのゲームになりそうじゃ無いじゃん！？！？！？！？！？！？！</strong></p>
+<p>ということで、まずはそういったところから始める必要があります(が、画像表示とか以外のプログラミングは入門の知識を使います)</p>
+<h2>60FPS</h2>
+<p>人間の目は1秒に60コマ程度のパラパラ漫画を見せられると、それをあたかも「実際に動いている」と認識する</p>
+<p>基本的にゲームでもちゃんと動かすなら60FPS(Frames per second)が基本となる</p>
+<h2>Javaによるテンプレート</h2>
+<p>とりあえずウィンドウが表示したいですね</p>
+<p>以下がそのコードになります</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="o">(</span><span class="k">new</span> <span class="n">Main</span><span class="o">()).</span><span class="na">run</span><span class="o">();</span> <span class="c1">// non-static</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="n">JFrame</span> <span class="n">fr</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">(){</span>
+    <span class="c1">// ウィンドウ生成</span>
+    <span class="n">fr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="o">(</span><span class="s">&quot;タイトル&quot;</span><span class="o">);</span>
+    <span class="c1">// 閉じるボタンの挙動設定</span>
+    <span class="n">fr</span><span class="o">.</span><span class="na">setDefaultCloseOperation</span><span class="o">(</span><span class="n">JFrame</span><span class="o">.</span><span class="na">EXIT_ON_CLOSE</span><span class="o">);</span>
+    <span class="c1">// ウィンドウサイズ変更不可に</span>
+    <span class="n">fr</span><span class="o">.</span><span class="na">setResizable</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+    <span class="c1">// ウィンドウの中身のサイズを調節 ここでは横800 x 縦600</span>
+    <span class="n">fr</span><span class="o">.</span><span class="na">getContentPane</span><span class="o">().</span><span class="na">setPreferredSize</span><span class="o">(</span><span class="k">new</span> <span class="n">Dimension</span><span class="o">(</span><span class="mi">800</span><span class="o">,</span> <span class="mi">600</span><span class="o">));</span>
+    <span class="c1">// 表示</span>
+    <span class="n">fr</span><span class="o">.</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="c1">// サイズ調整</span>
+    <span class="n">fr</span><span class="o">.</span><span class="na">pack</span><span class="o">();</span>
+
+    <span class="c1">// 無限ループ</span>
+    <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
+      <span class="c1">// ここがメインの処理！</span>
+      <span class="n">move</span><span class="o">();</span>
+      <span class="c1">// 60FPS用</span>
+      <span class="k">try</span><span class="o">{</span>
+        <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">16</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>
+        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+    <span class="c1">// ここでいろいろやる</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello, GUI World!&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>とりあえずウィンドウが表示されました！！</p>
+<p>ウィンドウ生成の部分は「こういうものなんだ」ととりあえず覚えてください。</p>
+<p>コピペで構いません。詳しい意味を知ってる人は5割もいないと思います。</p>
+<p>その後、while(true)を使うことで「無限ループ」を起こします</p>
+<p>無限ループをするとPCがフリーズしてしまいますが、try-catchの中のThread.sleep(16)で毎回16ミリ秒休憩するようにしています</p>
+<p>そのためフリーズしないのです</p>
+<p>もし無限ループがないと、すぐにrunメソッドが終了してしまいます、するとウィンドウも消えてしまいます！</p>
+<p>そのためこれは<strong>必要な</strong>無限ループなのです</p>
+<p>これで、16ミリ秒ごとにmove()が呼ばれるようなプログラムが完成しました。</p>
+<p>16ミリ秒というのは1000(ミリ秒)/60(フレーム) = 16.66666...(ミリ秒/フレーム) から来ています。</p>
+<p>とりあえずはこれで、ゲームの土台ができました</p>
+<h2>丸・四角・文字の表示</h2>
+<p>白画面は寂しいのでなにか表示しましょう(プログラミング入門で言うHello Worldがしたい)</p>
+<div class="codehilite"><pre>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="o">(</span><span class="n">Graphics2D</span><span class="o">)</span><span class="n">fr</span><span class="o">.</span><span class="na">getContentPane</span><span class="o">().</span><span class="na">getGraphics</span><span class="o">();</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">black</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">fillRect</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">100</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">red</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">fillOval</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">100</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">blue</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">fillOval</span><span class="o">(</span><span class="mi">300</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">200</span><span class="o">,</span><span class="mi">100</span><span class="o">);</span>
+
+    <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">black</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">drawRect</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span><span class="mi">300</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">100</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">red</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">drawOval</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span><span class="mi">300</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">100</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">blue</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">drawOval</span><span class="o">(</span><span class="mi">300</span><span class="o">,</span><span class="mi">300</span><span class="o">,</span><span class="mi">200</span><span class="o">,</span><span class="mi">100</span><span class="o">);</span>
+
+    <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="k">new</span> <span class="n">Color</span><span class="o">(</span><span class="mi">255</span><span class="o">,</span><span class="mi">127</span><span class="o">,</span><span class="mi">127</span><span class="o">));</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">fillRect</span><span class="o">(</span><span class="mi">20</span><span class="o">,</span><span class="mi">20</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">red</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">setFont</span><span class="o">(</span><span class="k">new</span> <span class="n">Font</span><span class="o">(</span><span class="n">Font</span><span class="o">.</span><span class="na">SERIF</span><span class="o">,</span> <span class="n">Font</span><span class="o">.</span><span class="na">PLAIN</span><span class="o">,</span> <span class="mi">24</span><span class="o">));</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">drawString</span><span class="o">(</span><span class="s">&quot;Hello, World&quot;</span><span class="o">,</span><span class="mi">20</span><span class="o">,</span><span class="mi">20</span><span class="o">);</span>
+  <span class="o">}</span>
+</pre></div>
+
+
+<p>これで四角・丸・文字が描画できるようになります</p>
+<p>まず、ウィンドウのグラフィックを扱うためのオブジェクトをGraphics2D型のg2に代入します</p>
+<p>このg2のメソッドを使うことでウィンドウにいろいろと描画することができるようになります</p>
+<hr>
+<p>g2.setColorは描画色を変更します</p>
+<p>RGBを指定する方法とデフォルトで用意されている色を使う方法があり、両方使えます</p>
+<hr>
+<p>g2.drawRect(x,y,w,h)は、(x,y)と(x+w,y+h)を対角とする長方形を描画します</p>
+<p>g2.fillRect(x,y,w,h)もあります</p>
+<p>違いは中身を塗るか塗らないかです。fillするかfillしないか、です</p>
+<p>ここで二次元座標は、ウィンドウの左上の端を(0,0)、右下の端を(800,600)としています</p>
+<p>800,600という数字はウィンドウを生成した時に指定しています</p>
+<p>そこを変更するとウィンドウサイズも座標の右下も変わります</p>
+<hr>
+<p>g2.drawOval(x,y,w,h)は、(x,y)と(x+w,y+h)を対角とする長方形に内接する楕円を描画します</p>
+<p>こちらもg2.fillOval(x,y,w,h)が存在します</p>
+<p>原点(cx,cy)、半径rの円を描画したいときは、g2.drawOval(cx-r,cy-r,2*r,2*r)とします</p>
+<hr>
+<p>g2.drawString(text,x,y)は文字列を描画します</p>
+<p>g2.setFont(new Font(Font.SERIF, Font.PLAIN, size))としてからやるとフォントサイズを変更してから描画できます</p>
+<p>また上の例では(x,y)の位置が分かりやすいように補助線を引いていますが、お分かりの通り(x,y)は文字列のベースラインを表しています</p>
+<p>表示位置が予想外のところになるかもしれませんがそこは気をつけましょう</p>
+<hr>
+<p>これで、とりあえず「画面に何か描画する」ということができるようになりました</p>
+<h2>動かしてみる</h2>
+<p>おもむろにこうしてみましょう</p>
+<div class="codehilite"><pre>  <span class="kd">public</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="o">(</span><span class="n">Graphics2D</span><span class="o">)</span><span class="n">fr</span><span class="o">.</span><span class="na">getContentPane</span><span class="o">().</span><span class="na">getGraphics</span><span class="o">();</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">black</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">fillRect</span><span class="o">(</span><span class="n">x</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">100</span><span class="o">);</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="mi">3</span><span class="o">;</span>
+  <span class="o">}</span>
+</pre></div>
+
+
+<p>画面がちょっと動くようになりました！</p>
+<p>でもなんか黒い物体が伸びるだけですね……</p>
+<p>これは「画面に黒い正方形を書く」→「画面に黒い正方形を書く」→……</p>
+<p>と、ただ落書きをガンガン上書きしているからこうなるのです</p>
+<p>そのため、アニメーションの1コマができたら、一回画面を真っ白にリセットしてあげると良いです</p>
+<div class="codehilite"><pre>  <span class="kd">public</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="o">(</span><span class="n">Graphics2D</span><span class="o">)</span><span class="n">fr</span><span class="o">.</span><span class="na">getContentPane</span><span class="o">().</span><span class="na">getGraphics</span><span class="o">();</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">white</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">fillRect</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">800</span><span class="o">,</span><span class="mi">600</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">black</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">fillRect</span><span class="o">(</span><span class="n">x</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">100</span><span class="o">);</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="mi">3</span><span class="o">;</span>
+  <span class="o">}</span>
+</pre></div>
+
+
+<p>基本的にはこうやってアニメーションさせることになります</p>
+<p>これをいろいろな変数を使っていろいろな画像や物体を描画すれば、ゲームになります！</p>
+<h2>画像描画</h2>
+<p>ところでちょっとカクカクしますね……それはさておき</p>
+<p>画像を描画してみましょう</p>
+<p>画像を描画できればおよそ任意のゲーム画面が表現できるようになります</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>          <span class="c1">// 追加</span>
+<span class="kn">import</span> <span class="nn">javax.imageio.ImageIO</span><span class="o">;</span> <span class="c1">// 追加</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="o">(</span><span class="k">new</span> <span class="n">Main</span><span class="o">()).</span><span class="na">run</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="n">JFrame</span> <span class="n">fr</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="n">Image</span> <span class="n">dman</span><span class="o">;</span>          <span class="c1">// 追加</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">(){</span>
+    <span class="c1">// (中略)</span>
+    <span class="c1">// サイズ調整</span>
+    <span class="n">fr</span><span class="o">.</span><span class="na">pack</span><span class="o">();</span>
+
+    <span class="c1">// 追加</span>
+    <span class="k">try</span><span class="o">{</span>
+      <span class="c1">// このtryの中で画像を読み込む</span>
+      <span class="n">dman</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;d3.png&quot;</span><span class="o">));</span>
+    <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>
+      <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="c1">// (中略)</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="o">(</span><span class="n">Graphics2D</span><span class="o">)</span><span class="n">fr</span><span class="o">.</span><span class="na">getContentPane</span><span class="o">().</span><span class="na">getGraphics</span><span class="o">();</span>
+    <span class="kt">int</span> <span class="n">w</span> <span class="o">=</span> <span class="n">dman</span><span class="o">.</span><span class="na">getWidth</span><span class="o">(</span><span class="n">fr</span><span class="o">);</span>
+    <span class="kt">int</span> <span class="n">h</span> <span class="o">=</span> <span class="n">dman</span><span class="o">.</span><span class="na">getHeight</span><span class="o">(</span><span class="n">fr</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">drawImage</span><span class="o">(</span><span class="n">dman</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">w</span><span class="o">,</span><span class="n">h</span><span class="o">,</span><span class="n">fr</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>D言語くん(d3.png)がウィンドウに表示されると思います</p>
+<p><img alt="D言語くん" src="data:image/png;base64,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"></p>
+<p>画像はImage型で保存しておきます</p>
+<p>これは無限ループで毎回ファイルから読み込む必要はなく、一度だけ読みこめばいくらでも再利用できるので、ループの前に代入してしまいます</p>
+<p>try-catchで書いています。これについて説明すると時間が足りないので「こういうもの」と考えてください</p>
+<p>さて、Image型に画像を読み込んだら、Graphics2Dのメソッドにそれを渡すことで描画ができます</p>
+<p>g2.drawImage(img,x,y,w,h,fr) で、imgの画像をdrawRect同様に描画します。最後にfrとついていますが、これはfr(ウィンドウの変数)基準でどれぐらいサイズ？とかいう情報を得るためにつけています。あまり気にしなくて大丈夫です</p>
+<p>なお、wとhが元画像の比と違う場合、引き伸ばされます。hの代わりに2*hするとD言語くんが細長く表示されます。</p>
+<h2>チカチカする問題の解決</h2>
+<p>さて、チカチカする問題に戻りましょう</p>
+<p>なんでチカチカするかというと、たとえ高速で描画していると言っても、プレイヤーが見ている前で「画面を白塗り」→「物体を描画」→「物体を描画」→「16ミリ秒待機」をやっていると？</p>
+<p>「画面を白塗り」した瞬間が見えたりしちゃうわけですね</p>
+<p>そこで、「画面を白塗り」→「物体を描画」→「物体を描画」の部分を<strong>隠して</strong>、その変更をあとでまとめてウィンドウに描画すればよさそうですね</p>
+<p>今回は、BufferedImageという書き込める画像型の変数を用意しておいて、そこにウィンドウに書き込む代わりにその画像変数に書き込むようにします</p>
+<p>そして、すべての書き込みが終わった後で、その画像をウィンドウに書き込みましょう</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.imageio.ImageIO</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.awt.image.BufferedImage</span><span class="o">;</span>  <span class="c1">// 追加</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="o">(</span><span class="k">new</span> <span class="n">Main</span><span class="o">()).</span><span class="na">run</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="n">JFrame</span> <span class="n">fr</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="n">BufferedImage</span> <span class="n">buf</span><span class="o">;</span>           <span class="c1">// 追加</span>
+  <span class="kd">public</span> <span class="n">Image</span> <span class="n">dman</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">(){</span>
+    <span class="c1">// 追加</span>
+    <span class="n">buf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedImage</span><span class="o">(</span><span class="mi">800</span><span class="o">,</span><span class="mi">600</span><span class="o">,</span><span class="n">BufferedImage</span><span class="o">.</span><span class="na">TYPE_INT_ARGB</span><span class="o">);</span>
+
+    <span class="c1">// (中略)</span>
+
+    <span class="c1">// 無限ループ</span>
+    <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
+      <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="o">(</span><span class="n">Graphics2D</span><span class="o">)</span><span class="n">buf</span><span class="o">.</span><span class="na">getGraphics</span><span class="o">();</span>        <span class="c1">// 追加</span>
+      <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">white</span><span class="o">);</span>                             <span class="c1">// 追加</span>
+      <span class="n">g2</span><span class="o">.</span><span class="na">fillRect</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">800</span><span class="o">,</span><span class="mi">600</span><span class="o">);</span>                             <span class="c1">// 追加</span>
+      <span class="n">move</span><span class="o">();</span>
+      <span class="n">g2</span> <span class="o">=</span> <span class="o">(</span><span class="n">Graphics2D</span><span class="o">)</span><span class="n">fr</span><span class="o">.</span><span class="na">getContentPane</span><span class="o">().</span><span class="na">getGraphics</span><span class="o">();</span>   <span class="c1">// 追加</span>
+      <span class="n">g2</span><span class="o">.</span><span class="na">drawImage</span><span class="o">(</span><span class="n">buf</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">fr</span><span class="o">);</span>                             <span class="c1">// 追加</span>
+      <span class="c1">// 60FPS用</span>
+      <span class="k">try</span><span class="o">{</span>
+        <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">16</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>
+        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="o">(</span><span class="n">Graphics2D</span><span class="o">)</span><span class="n">buf</span><span class="o">.</span><span class="na">getGraphics</span><span class="o">();</span>          <span class="c1">// 変更</span>
+    <span class="kt">int</span> <span class="n">w</span> <span class="o">=</span> <span class="n">dman</span><span class="o">.</span><span class="na">getWidth</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+    <span class="kt">int</span> <span class="n">h</span> <span class="o">=</span> <span class="n">dman</span><span class="o">.</span><span class="na">getHeight</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">drawImage</span><span class="o">(</span><span class="n">dman</span><span class="o">,</span><span class="n">x</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">w</span><span class="o">,</span><span class="n">h</span><span class="o">,</span><span class="kc">null</span><span class="o">);</span>                        <span class="c1">// 動かすように</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="mi">3</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>はい、どうでしょうか</p>
+<p>なめらかに動きますかね？</p>
+<p>bufという変数に仮の画面を表す画像を用意しておきます</p>
+<p>その変数からgetGraphics()でGraphics2D変数を取るようにするだけで、ウィンドウ同様にbufに書き込めます</p>
+<p>そして、move()を呼び出した後に、ウィンドウのGraphics2Dを取って、bufをまとめて描画します</p>
+<p>こうすることで作業途中の画面を見せることがなくなるため、チカチカがなくなり、なめらかになります</p>
+<p>この技法を<strong>ダブルバッファリング</strong>と呼びます</p>
+<h2>まとめ</h2>
+<p>このパートではついにJavaのプログラムでウィンドウの表示、無限ループによる処理の継続、様々なものの描画ができるようになりました。</p>
+<p>次はついに、ゲームを作っていきたいと思います</p>
+<p>以下に現在の全体のコードを載せます</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.imageio.ImageIO</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.awt.image.BufferedImage</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="o">(</span><span class="k">new</span> <span class="n">Main</span><span class="o">()).</span><span class="na">run</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="n">JFrame</span> <span class="n">fr</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="n">BufferedImage</span> <span class="n">buf</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="n">Image</span> <span class="n">dman</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">(){</span>
+    <span class="n">buf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedImage</span><span class="o">(</span><span class="mi">800</span><span class="o">,</span><span class="mi">600</span><span class="o">,</span><span class="n">BufferedImage</span><span class="o">.</span><span class="na">TYPE_INT_ARGB</span><span class="o">);</span>
+
+    <span class="c1">// ウィンドウ生成</span>
+    <span class="n">fr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="o">();</span>
+    <span class="c1">// 閉じるボタンの挙動設定</span>
+    <span class="n">fr</span><span class="o">.</span><span class="na">setDefaultCloseOperation</span><span class="o">(</span><span class="n">JFrame</span><span class="o">.</span><span class="na">EXIT_ON_CLOSE</span><span class="o">);</span>
+    <span class="c1">// ウィンドウサイズ変更不可に</span>
+    <span class="n">fr</span><span class="o">.</span><span class="na">setResizable</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+    <span class="c1">// ウィンドウの中身のサイズを調節 ここでは横800 x 縦600</span>
+    <span class="n">fr</span><span class="o">.</span><span class="na">getContentPane</span><span class="o">().</span><span class="na">setPreferredSize</span><span class="o">(</span><span class="k">new</span> <span class="n">Dimension</span><span class="o">(</span><span class="mi">800</span><span class="o">,</span> <span class="mi">600</span><span class="o">));</span>
+    <span class="c1">// 表示</span>
+    <span class="n">fr</span><span class="o">.</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="c1">// サイズ調整</span>
+    <span class="n">fr</span><span class="o">.</span><span class="na">pack</span><span class="o">();</span>
+
+    <span class="k">try</span><span class="o">{</span>
+      <span class="n">dman</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;d3.png&quot;</span><span class="o">));</span>
+    <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>
+      <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="c1">// 無限ループ</span>
+    <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
+      <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="o">(</span><span class="n">Graphics2D</span><span class="o">)</span><span class="n">buf</span><span class="o">.</span><span class="na">getGraphics</span><span class="o">();</span>
+      <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">white</span><span class="o">);</span>
+      <span class="n">g2</span><span class="o">.</span><span class="na">fillRect</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">800</span><span class="o">,</span><span class="mi">600</span><span class="o">);</span>
+      <span class="n">move</span><span class="o">();</span>
+      <span class="n">g2</span> <span class="o">=</span> <span class="o">(</span><span class="n">Graphics2D</span><span class="o">)</span><span class="n">fr</span><span class="o">.</span><span class="na">getContentPane</span><span class="o">().</span><span class="na">getGraphics</span><span class="o">();</span>
+      <span class="n">g2</span><span class="o">.</span><span class="na">drawImage</span><span class="o">(</span><span class="n">buf</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">fr</span><span class="o">);</span>
+      <span class="c1">// 60FPS用</span>
+      <span class="k">try</span><span class="o">{</span>
+        <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">16</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>
+        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="o">(</span><span class="n">Graphics2D</span><span class="o">)</span><span class="n">buf</span><span class="o">.</span><span class="na">getGraphics</span><span class="o">();</span>
+    <span class="kt">int</span> <span class="n">w</span> <span class="o">=</span> <span class="n">dman</span><span class="o">.</span><span class="na">getWidth</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+    <span class="kt">int</span> <span class="n">h</span> <span class="o">=</span> <span class="n">dman</span><span class="o">.</span><span class="na">getHeight</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">drawImage</span><span class="o">(</span><span class="n">dman</span><span class="o">,</span><span class="n">x</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">w</span><span class="o">,</span><span class="n">h</span><span class="o">,</span><span class="kc">null</span><span class="o">);</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="mi">3</span><span class="o">;</span>
+
+    <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="k">new</span> <span class="n">Color</span><span class="o">(</span><span class="mi">255</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">));</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">fillRect</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">20</span><span class="o">);</span>
+
+    <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">blue</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">drawOval</span><span class="o">(</span><span class="mi">140</span><span class="o">,</span><span class="mi">40</span><span class="o">,</span><span class="mi">20</span><span class="o">,</span><span class="mi">20</span><span class="o">);</span>
+
+    <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">green</span><span class="o">);</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">setFont</span><span class="o">(</span><span class="k">new</span> <span class="n">Font</span><span class="o">(</span><span class="n">Font</span><span class="o">.</span><span class="na">SERIF</span><span class="o">,</span> <span class="n">Font</span><span class="o">.</span><span class="na">PLAIN</span><span class="o">,</span> <span class="mi">36</span><span class="o">));</span>
+    <span class="n">g2</span><span class="o">.</span><span class="na">drawString</span><span class="o">(</span><span class="s">&quot;D言語くん in Java&quot;</span><span class="o">,</span><span class="mi">400</span><span class="o">,</span><span class="mi">600</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2>ゲームの基礎の基礎 終わり</h2>
+        </article>
+      </div>
+    </div>
+  </body>
+</html>
