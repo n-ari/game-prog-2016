@@ -10,7 +10,7 @@
 class Sushi {
 	public String sushiName;
 	public int cost;
-	protected int createdAt;
+	public int createdAt;
 	public int yummy;
 	public Sushi(String name, int cost, int time, int yummy){
 		this.sushiName = name;
@@ -21,17 +21,20 @@ class Sushi {
 }
 class Main {
 	public static void main(String[] args){
+		(new Main()).run();
+	}
+	public void run(){
 		Sushi maguro = new Sushi("maguro",108,19250225,100);
 
 		System.out.println(getCostPerformance(maguro));
 	}
-	public static float getCostPerformance(Sushi s){
+	public float getCostPerformance(Sushi s){
 		return (float)(s.yummy)/(float)(s.cost);
 	}
 }
 ```
 
-全然分からない
+今まで書いてきたMainと果てしなく似てる……
 
 ## 何が出来る？
 
@@ -43,6 +46,9 @@ class Main {
 ```java
 class Main {
 	public static void main(String[] args){
+		(new Main()).run();
+	}
+	public void run(){
 		String maguro_sushiName = "maguro";
 		int maguro_cost = 108;
 		int maguro_createdAt = 19250225;
@@ -50,7 +56,7 @@ class Main {
 
 		System.out.println(getCostPerformance(maguro_cost, maguro_yummy));
 	}
-	public static float getCostPerformance(int cost, int yummy){
+	public float getCostPerformance(int cost, int yummy){
 		return (float)(yummy)/(float)(cost);
 	}
 }
@@ -62,20 +68,11 @@ class Main {
 
 ## クラスを宣言
 
-実はみなさんもう使っている
+class Main ~ は、実はクラスの宣言だった
 
-```java
-// ↓これこそクラス
-class Main {
-	public static void main(String[] args){
-		//
-	}
-}
-```
+それと同じ感じで書けばクラスになる
 
-Javaはクラスが基本単位のため、今まで書いてきたのもクラスだった
-
-クラスの中に変数宣言・メソッド宣言をすると、それがクラス
+クラスの中では変数宣言とメソッド宣言ができる(Mainと同じ！)
 
 ```java
 class Sushi {
@@ -114,7 +111,7 @@ class Sushi {
 
 ## コンストラクタ
 
-クラスを使ってオブジェクトを生成した時に呼び出されるもの
+クラスを使ってオブジェクトを生成した時に呼び出されるメソッド
 
 初期化処理と言っても良い
 
@@ -130,7 +127,8 @@ class Hello {								 // <- Hello クラス
 }
 class Main {
 	public static void main(String[] args){
-		Hello w = new Hello("World!");
+		Hello w = new Hello("World!");		// コンストラクタの引数に "World!" を渡している
+		// ↑の文が実行されるとHelloクラスのコンストラクタが呼び出される
 		System.out.println(w.x);
 	}
 }
@@ -176,29 +174,13 @@ class Main {
 
 static とは 静的メンバ をあらわす修飾子
 
+「クラスに対して固有のもの」を表す
+
+例えば、クラスを使っていくつもオブジェクトを作ると、オブジェクト一つ一つがクラスの変数を持つが、
+
+クラス内にstaticな変数があると、そのクラスの全てのオブジェクトが1つの変数を参照することになる
+
 使えるところでは便利だけどとりあえず今回はカット
-
-ただ、**staticからはstaticのメソッド・変数しか触れない**という制約があるため、回避したいね
-
-こうします
-
-```java
-class Main {
-	public static void main(String[] args){
-		(new Main()).run();
-	}
-	public void run(){
-		System.out.println("Hello, non-static World!");
-	}
-}
-```
-
-- staticからstatic以外は直接は呼べない
-- でもオブジェクトを生成してからのメソッドは呼べる
-- 自分自身のオブジェクトを生成してそのnon-staticなメソッドを呼ぶ
-- staticから抜けだした
-
-今後はこんな形で書くことにする
 
 ## 継承・オーバーライド
 
@@ -285,7 +267,7 @@ class Main {
 - 継承すると親クラスから受け継いだりできる
 - 継承すると親クラスの型の変数に代入できたりする
 
-プログラミング入門に比べて一気に抽象度が上がってしまい、混乱している人も多くいると思いますが、進みます
+プログラミング入門に比べて一気に抽象度が上がってしまい、混乱の種となることが多いです
 
 ここらへんはいわゆる慣れの問題が大きく、実際に書いてみて理解できる、ということもあると思います
 
