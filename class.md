@@ -8,26 +8,26 @@
 
 ```java
 class Sushi {
-  public String sushiName;
-  public int cost;
-  protected int createdAt;
-  public int yummy;
-  public Sushi(String name, int cost, int time, int yummy){
-    this.sushiName = name;
-    this.cost = cost;
-    this.createdAt = time;
-    this.yummy = yummy;
-  }
+	public String sushiName;
+	public int cost;
+	protected int createdAt;
+	public int yummy;
+	public Sushi(String name, int cost, int time, int yummy){
+		this.sushiName = name;
+		this.cost = cost;
+		this.createdAt = time;
+		this.yummy = yummy;
+	}
 }
 class Main {
-  public static void main(String[] args){
-    Sushi maguro = new Sushi("maguro",108,19250225,100);
+	public static void main(String[] args){
+		Sushi maguro = new Sushi("maguro",108,19250225,100);
 
-    System.out.println(getCostPerformance(maguro));
-  }
-  public static float getCostPerformance(Sushi s){
-    return (float)(s.yummy)/(float)(s.cost);
-  }
+		System.out.println(getCostPerformance(maguro));
+	}
+	public static float getCostPerformance(Sushi s){
+		return (float)(s.yummy)/(float)(s.cost);
+	}
 }
 ```
 
@@ -42,17 +42,17 @@ class Main {
 
 ```java
 class Main {
-  public static void main(String[] args){
-    String maguro_sushiName = "maguro";
-    int maguro_cost = 108;
-    int maguro_createdAt = 19250225;
-    int maguro_yummy = 100;
+	public static void main(String[] args){
+		String maguro_sushiName = "maguro";
+		int maguro_cost = 108;
+		int maguro_createdAt = 19250225;
+		int maguro_yummy = 100;
 
-    System.out.println(getCostPerformance(maguro_cost, maguro_yummy));
-  }
-  public static float getCostPerformance(int cost, int yummy){
-    return (float)(yummy)/(float)(cost);
-  }
+		System.out.println(getCostPerformance(maguro_cost, maguro_yummy));
+	}
+	public static float getCostPerformance(int cost, int yummy){
+		return (float)(yummy)/(float)(cost);
+	}
 }
 ```
 
@@ -67,9 +67,9 @@ class Main {
 ```java
 // ↓これこそクラス
 class Main {
-  public static void main(String[] args){
-    //
-  }
+	public static void main(String[] args){
+		//
+	}
 }
 ```
 
@@ -79,14 +79,14 @@ Javaはクラスが基本単位のため、今まで書いてきたのもクラ�
 
 ```java
 class Sushi {
-  public String sushiName;
-  public int cost, yummy;
-  public float getCostPerformance(){
-    return (float)(yummy)/(float)(cost);
-  }
-  public void changeName(String newName){
-    this.sushiName = newName;
-  }
+	public String sushiName;
+	public int cost, yummy;
+	public float getCostPerformance(){
+		return (float)(yummy)/(float)(cost);
+	}
+	public void changeName(String newName){
+		this.sushiName = newName;
+	}
 }
 ```
 
@@ -95,8 +95,8 @@ class Sushi {
 ## オブジェクトを生成する
 
 ```java
-  // class Sushi が定義されているとする
-  Sushi mysushi = new Sushi();
+	// class Sushi が定義されているとする
+	Sushi mysushi = new Sushi();
 ```
 
 クラス名 変数名 = new クラス名(コンストラクタの引数...);
@@ -106,8 +106,8 @@ class Sushi {
 オブジェクトの中身には . (ドット、コロン)を使ってアクセスする
 
 ```java
-  // class Sushi, Sushi.cost が定義されているとする
-  System.out.println(mysushi.cost);
+	// class Sushi, Sushi.cost が定義されているとする
+	System.out.println(mysushi.cost);
 ```
 
 これが基本的な使い方
@@ -121,18 +121,18 @@ class Sushi {
 コンストラクタはクラス内に「クラス名と同じ名前のメソッド」を「返り値の型無し」で書く
 
 ```java
-class Hello {                 // <- Hello クラス
-  public int x;
-  public Hello(String say){   // <- Hello クラスだから Hello という名前のメソッドを書くと、コンストラクタになる
-    System.out.println("Hello, "+say);
-    x = 3;
-  }
+class Hello {								 // <- Hello クラス
+	public int x;
+	public Hello(String say){	 // <- Hello クラスだから Hello という名前のメソッドを書くと、コンストラクタになる
+		System.out.println("Hello, "+say);
+		x = 3;
+	}
 }
 class Main {
-  public static void main(String[] args){
-    Hello w = new Hello("World!");
-    System.out.println(w.x);
-  }
+	public static void main(String[] args){
+		Hello w = new Hello("World!");
+		System.out.println(w.x);
+	}
 }
 ```
 
@@ -153,18 +153,18 @@ public とか private とか protected とか
 
 ```java
 class Usamin {
-  public int age;
-  private int truthAge;
-  public Usamin(){
-    // 初期化処理
-  }
+	public int age;
+	private int truthAge;
+	public Usamin(){
+		// 初期化処理
+	}
 }
 class Main {
-  public static void main(String[] args){
-    Usamin usa = new Usamin();
-    System.out.println(usa.age);      // 出来る
-    System.out.println(usa.truthAge); // ダメーーーー！！！！
-  }
+	public static void main(String[] args){
+		Usamin usa = new Usamin();
+		System.out.println(usa.age);			// 出来る
+		System.out.println(usa.truthAge); // ダメーーーー！！！！
+	}
 }
 ```
 
@@ -184,12 +184,12 @@ static とは 静的メンバ をあらわす修飾子
 
 ```java
 class Main {
-  public static void main(String[] args){
-    (new Main()).run();
-  }
-  public void run(){
-    System.out.println("Hello, non-static World!");
-  }
+	public static void main(String[] args){
+		(new Main()).run();
+	}
+	public void run(){
+		System.out.println("Hello, non-static World!");
+	}
 }
 ```
 
@@ -208,48 +208,48 @@ class Main {
 
 ```java
 class Sushi {
-  public int cost;
-  private int id;
-  public Sushi(){
-    cost = 108;
-    id = 30;
-  }
-  public String getSushiName(){
-    return "ただの寿司";
-  }
+	public int cost;
+	private int id;
+	public Sushi(){
+		cost = 108;
+		id = 30;
+	}
+	public String getSushiName(){
+		return "ただの寿司";
+	}
 }
 class Maguro extends Sushi {
-  public Maguro(){
-    super();
-    this.cost = 216;
-    // System.out.println(this.id);   // -> Error!
-  }
-  public String getSushiName(){
-    return "マグロ";
-  }
-  public String getKanjiName(){
-    return "鮪";
-  }
+	public Maguro(){
+		super();
+		this.cost = 216;
+		// System.out.println(this.id);	 // -> Error!
+	}
+	public String getSushiName(){
+		return "マグロ";
+	}
+	public String getKanjiName(){
+		return "鮪";
+	}
 }
 
 class Main {
-  public static void main(String[] args){ (new Main()).run(); }
-  public void run(){
-    Sushi s1 = new Sushi();   // Sushi型の変数s1にSushiクラスのオブジェクトを代入
-    Sushi s2 = new Maguro();  // Sushi型の変数s2にMaguroクラスのオブジェクトを代入
-    Maguro m = new Maguro();  // Maguro型の変数mにMaguroクラスのオブジェクトを代入
-    System.out.println(s1.getSushiName());  // -> "ただの寿司"
-    System.out.println(s2.getSushiName());  // -> "マグロ"
-    System.out.println(m.getSushiName());   // -> "マグロ"
+	public static void main(String[] args){ (new Main()).run(); }
+	public void run(){
+		Sushi s1 = new Sushi();	 // Sushi型の変数s1にSushiクラスのオブジェクトを代入
+		Sushi s2 = new Maguro();	// Sushi型の変数s2にMaguroクラスのオブジェクトを代入
+		Maguro m = new Maguro();	// Maguro型の変数mにMaguroクラスのオブジェクトを代入
+		System.out.println(s1.getSushiName());	// -> "ただの寿司"
+		System.out.println(s2.getSushiName());	// -> "マグロ"
+		System.out.println(m.getSushiName());	 // -> "マグロ"
 
-    System.out.println(s1.cost);            // -> 108
-    System.out.println(s2.cost);            // -> 216
-    System.out.println(m.cost);             // -> 216
+		System.out.println(s1.cost);						// -> 108
+		System.out.println(s2.cost);						// -> 216
+		System.out.println(m.cost);						 // -> 216
 
-    System.out.println(m.getKanjiName());   // -> "鮪"
+		System.out.println(m.getKanjiName());	 // -> "鮪"
 
-    // System.out.println(s2.getKanjiName());  // -> Error
-  }
+		// System.out.println(s2.getKanjiName());	// -> Error
+	}
 }
 ```
 

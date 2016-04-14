@@ -24,12 +24,12 @@
 
 ```java
 class Main {
-  public static void main(String[] args){
-    System.out.println("Hello, World!");
-    Scanner sc = new Scanner(System.in);
-    int n = sc.nextInt();
-    System.out.println("入力した数は"+n);
-  }
+	public static void main(String[] args){
+		System.out.println("Hello, World!");
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		System.out.println("入力した数は"+n);
+	}
 }
 ```
 
@@ -60,44 +60,44 @@ import java.awt.*;
 import javax.swing.*;
 
 class Main {
-  public static void main(String[] args){
-    (new Main()).run(); // non-static
-  }
-  public JFrame fr;
-  public void run(){
-    // ウィンドウ生成
-    fr = new JFrame("タイトル");
-    // 閉じるボタンの挙動設定
-    fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    // ウィンドウサイズ変更不可に
-    fr.setResizable(false);
-    // ウィンドウの中身のサイズを調節 ここでは横800 x 縦600
-    fr.getContentPane().setPreferredSize(new Dimension(800, 600));
-    // 表示
-    fr.setVisible(true);
-    // サイズ調整
-    fr.pack();
+	public static void main(String[] args){
+		(new Main()).run(); // non-static
+	}
+	public JFrame fr;
+	public void run(){
+		// ウィンドウ生成
+		fr = new JFrame("タイトル");
+		// 閉じるボタンの挙動設定
+		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// ウィンドウサイズ変更不可に
+		fr.setResizable(false);
+		// ウィンドウの中身のサイズを調節 ここでは横800 x 縦600
+		fr.getContentPane().setPreferredSize(new Dimension(800, 600));
+		// 表示
+		fr.setVisible(true);
+		// サイズ調整
+		fr.pack();
 
-    // 無限ループ
-    while(true){
-      long beg = System.nanoTime();
-      // ここがメインの処理！
-      move();
-      // 60FPS用
-      long range = System.nanoTime() - beg;
-      long sleeptime = (16666666L - range)/1000000L;
-      if(sleeptime < 0) sleeptime = 0;
-      try{
-        Thread.sleep(sleeptime);
-      } catch (Exception e){
-        e.printStackTrace();
-      }
-    }
-  }
-  public void move(){
-    // ここでいろいろやる
-    System.out.println("Hello, GUI World!");
-  }
+		// 無限ループ
+		while(true){
+			long beg = System.nanoTime();
+			// ここがメインの処理！
+			move();
+			// 60FPS用
+			long range = System.nanoTime() - beg;
+			long sleeptime = (16666666L - range)/1000000L;
+			if(sleeptime < 0) sleeptime = 0;
+			try{
+				Thread.sleep(sleeptime);
+			} catch (Exception e){
+				e.printStackTrace();
+			}
+		}
+	}
+	public void move(){
+		// ここでいろいろやる
+		System.out.println("Hello, GUI World!");
+	}
 }
 ```
 
@@ -132,28 +132,28 @@ mainメソッドの中で、なんかやっていますが、これは特に気�
 白画面は寂しいのでなにか表示しましょう(プログラミング入門で言うHello Worldがしたい)
 
 ```java
-  public void move(){
-    Graphics2D g2 = (Graphics2D)fr.getContentPane().getGraphics();
-    g2.setColor(Color.black);
-    g2.fillRect(100,100,100,100);
-    g2.setColor(Color.red);
-    g2.fillOval(200,100,100,100);
-    g2.setColor(Color.blue);
-    g2.fillOval(300,100,200,100);
+	public void move(){
+		Graphics2D g2 = (Graphics2D)fr.getContentPane().getGraphics();
+		g2.setColor(Color.black);
+		g2.fillRect(100,100,100,100);
+		g2.setColor(Color.red);
+		g2.fillOval(200,100,100,100);
+		g2.setColor(Color.blue);
+		g2.fillOval(300,100,200,100);
 
-    g2.setColor(Color.black);
-    g2.drawRect(100,300,100,100);
-    g2.setColor(Color.red);
-    g2.drawOval(200,300,100,100);
-    g2.setColor(Color.blue);
-    g2.drawOval(300,300,200,100);
+		g2.setColor(Color.black);
+		g2.drawRect(100,300,100,100);
+		g2.setColor(Color.red);
+		g2.drawOval(200,300,100,100);
+		g2.setColor(Color.blue);
+		g2.drawOval(300,300,200,100);
 
-    g2.setColor(new Color(255,127,127));
-    g2.fillRect(20,20,100,1);
-    g2.setColor(Color.red);
-    g2.setFont(new Font(Font.SERIF, Font.PLAIN, 24));
-    g2.drawString("Hello, World",20,20);
-  }
+		g2.setColor(new Color(255,127,127));
+		g2.fillRect(20,20,100,1);
+		g2.setColor(Color.red);
+		g2.setFont(new Font(Font.SERIF, Font.PLAIN, 24));
+		g2.drawString("Hello, World",20,20);
+	}
 ```
 
 これで四角・丸・文字が描画できるようになります
@@ -209,13 +209,13 @@ g2.setFont(new Font(Font.SERIF, Font.PLAIN, size))としてからやるとフォ
 おもむろにこうしてみましょう
 
 ```java
-  public int x = 0;
-  public void move(){
-    Graphics2D g2 = (Graphics2D)fr.getContentPane().getGraphics();
-    g2.setColor(Color.black);
-    g2.fillRect(x,100,100,100);
-    x += 3;
-  }
+	public int x = 0;
+	public void move(){
+		Graphics2D g2 = (Graphics2D)fr.getContentPane().getGraphics();
+		g2.setColor(Color.black);
+		g2.fillRect(x,100,100,100);
+		x += 3;
+	}
 ```
 
 画面がちょっと動くようになりました！
@@ -230,15 +230,15 @@ g2.setFont(new Font(Font.SERIF, Font.PLAIN, size))としてからやるとフォ
 
 
 ```java
-  public int x = 0;
-  public void move(){
-    Graphics2D g2 = (Graphics2D)fr.getContentPane().getGraphics();
-    g2.setColor(Color.white);
-    g2.fillRect(0,0,800,600);
-    g2.setColor(Color.black);
-    g2.fillRect(x,100,100,100);
-    x += 3;
-  }
+	public int x = 0;
+	public void move(){
+		Graphics2D g2 = (Graphics2D)fr.getContentPane().getGraphics();
+		g2.setColor(Color.white);
+		g2.fillRect(0,0,800,600);
+		g2.setColor(Color.black);
+		g2.fillRect(x,100,100,100);
+		x += 3;
+	}
 ```
 
 基本的にはこうやってアニメーションさせることになります
@@ -257,59 +257,59 @@ g2.setFont(new Font(Font.SERIF, Font.PLAIN, size))としてからやるとフォ
 import java.awt.*;
 import javax.swing.*;
 
-import java.io.File;          // 追加
-import javax.imageio.ImageIO; // 追加
+import java.io.File;					// 追加
+import javax.imageio.ImageIO;			// 追加
 
 class Main {
-  public static void main(String[] args){
-    (new Main()).run();
-  }
-  public JFrame fr;
-  public Image dman;          // 追加
-  public void run(){
-    // ウィンドウ生成
-    fr = new JFrame("タイトル");
-    // 閉じるボタンの挙動設定
-    fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    // ウィンドウサイズ変更不可に
-    fr.setResizable(false);
-    // ウィンドウの中身のサイズを調節 ここでは横800 x 縦600
-    fr.getContentPane().setPreferredSize(new Dimension(800, 600));
-    // 表示
-    fr.setVisible(true);
-    // サイズ調整
-    fr.pack();
+	public static void main(String[] args){
+		(new Main()).run();
+	}
+	public JFrame fr;
+	public Image dman;					// 追加
+	public void run(){
+		// ウィンドウ生成
+		fr = new JFrame("タイトル");
+		// 閉じるボタンの挙動設定
+		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// ウィンドウサイズ変更不可に
+		fr.setResizable(false);
+		// ウィンドウの中身のサイズを調節 ここでは横800 x 縦600
+		fr.getContentPane().setPreferredSize(new Dimension(800, 600));
+		// 表示
+		fr.setVisible(true);
+		// サイズ調整
+		fr.pack();
 
-    // 追加
-    try{
-      // このtryの中で画像を読み込む
-      dman = ImageIO.read(new File("d3.png"));
-    }catch(Exception e){
-      e.printStackTrace();
-    }
+		// 追加
+		try{
+			// このtryの中で画像を読み込む
+			dman = ImageIO.read(new File("d3.png"));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 
-    // 無限ループ
-    while(true){
-      long beg = System.nanoTime();
-      // ここがメインの処理！
-      move();
-      // 60FPS用
-      long range = System.nanoTime() - beg;
-      long sleeptime = (16666666L - range)/1000000L;
-      if(sleeptime < 0) sleeptime = 0;
-      try{
-        Thread.sleep(sleeptime);
-      } catch (Exception e){
-        e.printStackTrace();
-      }
-    }
-  }
-  public void move(){
-    Graphics2D g2 = (Graphics2D)fr.getContentPane().getGraphics();
-    int w = dman.getWidth(fr);
-    int h = dman.getHeight(fr);
-    g2.drawImage(dman,0,0,w,h,fr);
-  }
+		// 無限ループ
+		while(true){
+			long beg = System.nanoTime();
+			// ここがメインの処理！
+			move();
+			// 60FPS用
+			long range = System.nanoTime() - beg;
+			long sleeptime = (16666666L - range)/1000000L;
+			if(sleeptime < 0) sleeptime = 0;
+			try{
+				Thread.sleep(sleeptime);
+			} catch (Exception e){
+				e.printStackTrace();
+			}
+		}
+	}
+	public void move(){
+		Graphics2D g2 = (Graphics2D)fr.getContentPane().getGraphics();
+		int w = dman.getWidth(fr);
+		int h = dman.getHeight(fr);
+		g2.drawImage(dman,0,0,w,h,fr);
+	}
 }
 ```
 
@@ -350,67 +350,67 @@ import javax.swing.*;
 import java.io.File;
 import javax.imageio.ImageIO;
 
-import java.awt.image.BufferedImage;  // 追加
+import java.awt.image.BufferedImage;			// 追加
 
 class Main {
-  public static void main(String[] args){
-    (new Main()).run();
-  }
-  public JFrame fr;
-  public BufferedImage buf;           // 追加
-  public Image dman;
-  public void run(){
-    // 追加
-    buf = new BufferedImage(800,600,BufferedImage.TYPE_INT_ARGB);
+	public static void main(String[] args){
+		(new Main()).run();
+	}
+	public JFrame fr;
+	public BufferedImage buf;					// 追加
+	public Image dman;
+	public void run(){
+		// 追加
+		buf = new BufferedImage(800,600,BufferedImage.TYPE_INT_ARGB);
 
-    // ウィンドウ生成
-    fr = new JFrame("タイトル");
-    // 閉じるボタンの挙動設定
-    fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    // ウィンドウサイズ変更不可に
-    fr.setResizable(false);
-    // ウィンドウの中身のサイズを調節 ここでは横800 x 縦600
-    fr.getContentPane().setPreferredSize(new Dimension(800, 600));
-    // 表示
-    fr.setVisible(true);
-    // サイズ調整
-    fr.pack();
+		// ウィンドウ生成
+		fr = new JFrame("タイトル");
+		// 閉じるボタンの挙動設定
+		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// ウィンドウサイズ変更不可に
+		fr.setResizable(false);
+		// ウィンドウの中身のサイズを調節 ここでは横800 x 縦600
+		fr.getContentPane().setPreferredSize(new Dimension(800, 600));
+		// 表示
+		fr.setVisible(true);
+		// サイズ調整
+		fr.pack();
 
-    try{
-      // このtryの中で画像を読み込む
-      dman = ImageIO.read(new File("d3.png"));
-    }catch(Exception e){
-      e.printStackTrace();
-    }
+		try{
+			// このtryの中で画像を読み込む
+			dman = ImageIO.read(new File("d3.png"));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 
-    // 無限ループ
-    while(true){
-      long beg = System.nanoTime();
-      Graphics2D g2 = (Graphics2D)buf.getGraphics();        // 追加
-      g2.setColor(Color.white);                             // 追加
-      g2.fillRect(0,0,800,600);                             // 追加
-      move();
-      g2 = (Graphics2D)fr.getContentPane().getGraphics();   // 追加
-      g2.drawImage(buf,0,0,fr);                             // 追加
-      // 60FPS用
-      long range = System.nanoTime() - beg;
-      long sleeptime = (16666666L - range)/1000000L;
-      if(sleeptime < 0) sleeptime = 0;
-      try{
-        Thread.sleep(sleeptime);
-      } catch (Exception e){
-        e.printStackTrace();
-      }
-    }
-  }
-  public int x = 0;
-  public void move(){
-    Graphics2D g2 = (Graphics2D)buf.getGraphics();          // 変更
-    int w = dman.getWidth(null);
-    int h = dman.getHeight(null);
-    g2.drawImage(dman,x,0,w,h,null);                        // 動かすように
-    x += 3;
-  }
+		// 無限ループ
+		while(true){
+			long beg = System.nanoTime();
+			Graphics2D g2 = (Graphics2D)buf.getGraphics();				// 追加
+			g2.setColor(Color.white);									// 追加
+			g2.fillRect(0,0,800,600);									// 追加
+			move();
+			g2 = (Graphics2D)fr.getContentPane().getGraphics();			// 追加
+			g2.drawImage(buf,0,0,fr);									// 追加
+			// 60FPS用
+			long range = System.nanoTime() - beg;
+			long sleeptime = (16666666L - range)/1000000L;
+			if(sleeptime < 0) sleeptime = 0;
+			try{
+				Thread.sleep(sleeptime);
+			} catch (Exception e){
+				e.printStackTrace();
+			}
+		}
+	}
+	public int x = 0;
+	public void move(){
+		Graphics2D g2 = (Graphics2D)buf.getGraphics();					// 変更
+		int w = dman.getWidth(null);
+		int h = dman.getHeight(null);
+		g2.drawImage(dman,x,0,w,h,null);								// 動かすように
+		x += 3;
+	}
 }
 ```
 
@@ -441,101 +441,101 @@ import javax.imageio.ImageIO;
 
 import java.awt.image.BufferedImage;
 
-import java.awt.event.*;            // 追加
+import java.awt.event.*;								// 追加
 
 class Main {
-  public static void main(String[] args){
-    (new Main()).run();
-  }
-  public JFrame fr;
-  public BufferedImage buf;
-  public boolean[] keybef, keynow, keynext;       // 追加
-  public Image dman;
-  public void run(){
-    buf = new BufferedImage(800,600,BufferedImage.TYPE_INT_ARGB);
+	public static void main(String[] args){
+		(new Main()).run();
+	}
+	public JFrame fr;
+	public BufferedImage buf;
+	public boolean[] keybef, keynow, keynext;			// 追加
+	public Image dman;
+	public void run(){
+		buf = new BufferedImage(800,600,BufferedImage.TYPE_INT_ARGB);
 
-    // 追加
-    keybef = new boolean[256];
-    keynow = new boolean[256];
-    keynext = new boolean[256];
-    for(int i=0;i<256;++i)
-      keybef[i] = keynow[i] = keynext[i] = false;
+		// 追加
+		keybef = new boolean[256];
+		keynow = new boolean[256];
+		keynext = new boolean[256];
+		for(int i=0;i<256;++i)
+			keybef[i] = keynow[i] = keynext[i] = false;
 
-    // ウィンドウ生成
-    fr = new JFrame("タイトル");
-    // 閉じるボタンの挙動設定
-    fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    // ウィンドウサイズ変更不可に
-    fr.setResizable(false);
-    // ウィンドウの中身のサイズを調節 ここでは横800 x 縦600
-    fr.getContentPane().setPreferredSize(new Dimension(800, 600));
-    // 表示
-    fr.setVisible(true);
-    // サイズ調整
-    fr.pack();
-    // キーリスナー登録
-    fr.addKeyListener(new keyclass());        // 追加
+		// ウィンドウ生成
+		fr = new JFrame("タイトル");
+		// 閉じるボタンの挙動設定
+		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// ウィンドウサイズ変更不可に
+		fr.setResizable(false);
+		// ウィンドウの中身のサイズを調節 ここでは横800 x 縦600
+		fr.getContentPane().setPreferredSize(new Dimension(800, 600));
+		// 表示
+		fr.setVisible(true);
+		// サイズ調整
+		fr.pack();
+		// キーリスナー登録
+		fr.addKeyListener(new keyclass());				// 追加
 
-    try{
-      // このtryの中で画像を読み込む
-      dman = ImageIO.read(new File("d3.png"));
-    }catch(Exception e){
-      e.printStackTrace();
-    }
+		try{
+			// このtryの中で画像を読み込む
+			dman = ImageIO.read(new File("d3.png"));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 
-    // 無限ループ
-    while(true){
-      long beg = System.nanoTime();
-      for(int i=0;i<256;++i){     // 追加
-        keybef[i] = keynow[i];    // 追加
-        keynow[i] = keynext[i];   // 追加
-      }                           // 追加
-      Graphics2D g2 = (Graphics2D)buf.getGraphics();
-      g2.setColor(Color.white);
-      g2.fillRect(0,0,800,600);
-      move();
-      g2 = (Graphics2D)fr.getContentPane().getGraphics();
-      g2.drawImage(buf,0,0,fr);
-      // 60FPS用
-      long range = System.nanoTime() - beg;
-      long sleeptime = (16666666L - range)/1000000L;
-      if(sleeptime < 0) sleeptime = 0;
-      try{
-        Thread.sleep(sleeptime);
-      } catch (Exception e){
-        e.printStackTrace();
-      }
-    }
-  }
-  public void move(){
-    // 変更
-    if(onPressed(KeyEvent.VK_Z)){
-      System.out.println("Pushed");
-    }
-    if(isPressed(KeyEvent.VK_X)){
-      System.out.println("Pushing...");
-    }
-  }
+		// 無限ループ
+		while(true){
+			long beg = System.nanoTime();
+			for(int i=0;i<256;++i){			// 追加
+				keybef[i] = keynow[i];		// 追加
+				keynow[i] = keynext[i];		// 追加
+			}								// 追加
+			Graphics2D g2 = (Graphics2D)buf.getGraphics();
+			g2.setColor(Color.white);
+			g2.fillRect(0,0,800,600);
+			move();
+			g2 = (Graphics2D)fr.getContentPane().getGraphics();
+			g2.drawImage(buf,0,0,fr);
+			// 60FPS用
+			long range = System.nanoTime() - beg;
+			long sleeptime = (16666666L - range)/1000000L;
+			if(sleeptime < 0) sleeptime = 0;
+			try{
+				Thread.sleep(sleeptime);
+			} catch (Exception e){
+				e.printStackTrace();
+			}
+		}
+	}
+	public void move(){
+		// 変更
+		if(onPressed(KeyEvent.VK_Z)){
+			System.out.println("Pushed");
+		}
+		if(isPressed(KeyEvent.VK_X)){
+			System.out.println("Pushing...");
+		}
+	}
 
-  // 以下コピペ
-  public boolean isPressed(int key){
-    return keynow[key];
-  }
-  public boolean onPressed(int key){
-    return !keybef[key] && keynow[key];
-  }
-  public class keyclass implements KeyListener {
-    @Override
-    public void keyTyped(KeyEvent e) {}
-    @Override
-    public void keyPressed(KeyEvent e) {
-      keynext[e.getKeyCode()] = true;
-    }
-    @Override
-    public void keyReleased(KeyEvent e) {
-      keynext[e.getKeyCode()] = false;
-    }
-  }
+	// 以下コピペ
+	public boolean isPressed(int key){
+		return keynow[key];
+	}
+	public boolean onPressed(int key){
+		return !keybef[key] && keynow[key];
+	}
+	public class keyclass implements KeyListener {
+		@Override
+		public void keyTyped(KeyEvent e) {}
+		@Override
+		public void keyPressed(KeyEvent e) {
+			keynext[e.getKeyCode()] = true;
+		}
+		@Override
+		public void keyReleased(KeyEvent e) {
+			keynext[e.getKeyCode()] = false;
+		}
+	}
 }
 ```
 
@@ -559,110 +559,110 @@ import java.awt.image.BufferedImage;
 import java.awt.event.*;
 
 class Main {
-  public static void main(String[] args){
-    (new Main()).run();
-  }
-  public JFrame fr;
-  public BufferedImage buf;
-  public boolean[] keybef, keynow, keynext;
-  public Image dman;
-  public void run(){
-    buf = new BufferedImage(800,600,BufferedImage.TYPE_INT_ARGB);
+	public static void main(String[] args){
+		(new Main()).run();
+	}
+	public JFrame fr;
+	public BufferedImage buf;
+	public boolean[] keybef, keynow, keynext;
+	public Image dman;
+	public void run(){
+		buf = new BufferedImage(800,600,BufferedImage.TYPE_INT_ARGB);
 
-    keybef = new boolean[256];
-    keynow = new boolean[256];
-    keynext = new boolean[256];
-    for(int i=0;i<256;++i)
-      keybef[i] = keynow[i] = keynext[i] = false;
+		keybef = new boolean[256];
+		keynow = new boolean[256];
+		keynext = new boolean[256];
+		for(int i=0;i<256;++i)
+			keybef[i] = keynow[i] = keynext[i] = false;
 
-    // ウィンドウ生成
-    fr = new JFrame("タイトル");
-    // 閉じるボタンの挙動設定
-    fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    // ウィンドウサイズ変更不可に
-    fr.setResizable(false);
-    // ウィンドウの中身のサイズを調節 ここでは横800 x 縦600
-    fr.getContentPane().setPreferredSize(new Dimension(800, 600));
-    // 表示
-    fr.setVisible(true);
-    // サイズ調整
-    fr.pack();
-    // キーリスナー登録
-    fr.addKeyListener(new keyclass());
+		// ウィンドウ生成
+		fr = new JFrame("タイトル");
+		// 閉じるボタンの挙動設定
+		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// ウィンドウサイズ変更不可に
+		fr.setResizable(false);
+		// ウィンドウの中身のサイズを調節 ここでは横800 x 縦600
+		fr.getContentPane().setPreferredSize(new Dimension(800, 600));
+		// 表示
+		fr.setVisible(true);
+		// サイズ調整
+		fr.pack();
+		// キーリスナー登録
+		fr.addKeyListener(new keyclass());
 
-    try{
-      // このtryの中で画像を読み込む
-      dman = ImageIO.read(new File("d3.png"));
-    }catch(Exception e){
-      e.printStackTrace();
-    }
+		try{
+			// このtryの中で画像を読み込む
+			dman = ImageIO.read(new File("d3.png"));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 
-    // 無限ループ
-    while(true){
-      long beg = System.nanoTime();
-      for(int i=0;i<256;++i){
-        keybef[i] = keynow[i];
-        keynow[i] = keynext[i];
-      }
-      Graphics2D g2 = (Graphics2D)buf.getGraphics();
-      g2.setColor(Color.white);
-      g2.fillRect(0,0,800,600);
-      move();
-      g2 = (Graphics2D)fr.getContentPane().getGraphics();
-      g2.drawImage(buf,0,0,fr);
-      // 60FPS用
-      long range = System.nanoTime() - beg;
-      long sleeptime = (16666666L - range)/1000000L;
-      if(sleeptime < 0) sleeptime = 0;
-      try{
-        Thread.sleep(sleeptime);
-      } catch (Exception e){
-        e.printStackTrace();
-      }
-    }
-  }
-  public int x = 0;
-  public void move(){
-    if(isPressed(KeyEvent.VK_Z)){
-      x -= 3;
-    }
-    if(isPressed(KeyEvent.VK_X)){
-      x += 3;
-    }
-    Graphics2D g2 = (Graphics2D)buf.getGraphics();
-    int w = dman.getWidth(null);
-    int h = dman.getHeight(null);
-    g2.drawImage(dman,x,0,w,h,null);
+		// 無限ループ
+		while(true){
+			long beg = System.nanoTime();
+			for(int i=0;i<256;++i){
+				keybef[i] = keynow[i];
+				keynow[i] = keynext[i];
+			}
+			Graphics2D g2 = (Graphics2D)buf.getGraphics();
+			g2.setColor(Color.white);
+			g2.fillRect(0,0,800,600);
+			move();
+			g2 = (Graphics2D)fr.getContentPane().getGraphics();
+			g2.drawImage(buf,0,0,fr);
+			// 60FPS用
+			long range = System.nanoTime() - beg;
+			long sleeptime = (16666666L - range)/1000000L;
+			if(sleeptime < 0) sleeptime = 0;
+			try{
+				Thread.sleep(sleeptime);
+			} catch (Exception e){
+				e.printStackTrace();
+			}
+		}
+	}
+	public int x = 0;
+	public void move(){
+		if(isPressed(KeyEvent.VK_Z)){
+			x -= 3;
+		}
+		if(isPressed(KeyEvent.VK_X)){
+			x += 3;
+		}
+		Graphics2D g2 = (Graphics2D)buf.getGraphics();
+		int w = dman.getWidth(null);
+		int h = dman.getHeight(null);
+		g2.drawImage(dman,x,0,w,h,null);
 
-    g2.setColor(new Color(255,0,0));
-    g2.fillRect(10,100,100,20);
-    
-    g2.setColor(Color.blue);
-    g2.drawOval(140,40,20,20);
-    
-    g2.setColor(Color.green);
-    g2.setFont(new Font(Font.SERIF, Font.PLAIN, 36));
-    g2.drawString("D言語くん in Java",400,600);
-  }
+		g2.setColor(new Color(255,0,0));
+		g2.fillRect(10,100,100,20);
+		
+		g2.setColor(Color.blue);
+		g2.drawOval(140,40,20,20);
+		
+		g2.setColor(Color.green);
+		g2.setFont(new Font(Font.SERIF, Font.PLAIN, 36));
+		g2.drawString("D言語くん in Java",400,600);
+	}
 
-  public boolean isPressed(int key){
-    return keynow[key];
-  }
-  public boolean onPressed(int key){
-    return !keybef[key] && keynow[key];
-  }
-  public class keyclass implements KeyListener {
-    @Override
-    public void keyTyped(KeyEvent e) {}
-    @Override
-    public void keyPressed(KeyEvent e) {
-      keynext[e.getKeyCode()] = true;
-    }
-    @Override
-    public void keyReleased(KeyEvent e) {
-      keynext[e.getKeyCode()] = false;
-    }
-  }
+	public boolean isPressed(int key){
+		return keynow[key];
+	}
+	public boolean onPressed(int key){
+		return !keybef[key] && keynow[key];
+	}
+	public class keyclass implements KeyListener {
+		@Override
+		public void keyTyped(KeyEvent e) {}
+		@Override
+		public void keyPressed(KeyEvent e) {
+			keynext[e.getKeyCode()] = true;
+		}
+		@Override
+		public void keyReleased(KeyEvent e) {
+			keynext[e.getKeyCode()] = false;
+		}
+	}
 }
 ```
 
