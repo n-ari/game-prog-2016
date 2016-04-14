@@ -599,6 +599,8 @@ class Main {
 以下に現在の全体のコードを載せます
 
 ```java
+package gameprog;
+
 import java.awt.*;
 import javax.swing.*;
 
