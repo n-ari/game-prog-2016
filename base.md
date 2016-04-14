@@ -49,6 +49,22 @@ Hello, World!
 
 基本的にゲームでもちゃんと動かすなら60FPS(Frames per second)が基本となる
 
+## Javaプロジェクトの作成
+
+プログラミング入門でやったと思いますが一応ここでおさらい&パッケージ名等を統一したいと思います
+
+1. ファイル→新規→Javaプロジェクト
+1. プロジェクト名を gameprog にして 完了
+1. パッケージエクスプローラーでgameprogを開いてsrcを選択
+1. 新規Javaパッケージ(もしくはファイル→新規→パッケージ)で gameprog パッケージを作成
+1. 新規Javaクラス(もしくはファイル→新規→クラス)で Main クラスを作成
+
+![ファイル構造](scs-base-1.png)
+
+このような構造になればOKです
+
+パッケージ名が違う場合は以下で出てくるコードも適宜読み替えてください
+
 ## Javaによるテンプレート
 
 とりあえずウィンドウが表示したいですね
@@ -56,6 +72,8 @@ Hello, World!
 以下がそのコードになります
 
 ```java
+package gameprog;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -253,7 +271,27 @@ g2.setFont(new Font(Font.SERIF, Font.PLAIN, size))としてからやるとフォ
 
 画像を描画できればおよそ任意のゲーム画面が表現できるようになります
 
+まず、以下のD言語くんの画像を保存してください(右クリック→名前をつけて保存)
+
+![D言語くん](d3.png)
+
+次にこれをEclipseのプロジェクトに取り込みます
+
+1. プロジェクトエクスプローラーのsrcを選択、右クリック → インポート
+1. 一般 の中の ファイル・システム を選択
+1. 参照 をクリックしてd3.pngを保存したフォルダを選択
+1. 右側の窓からd3.pngを選択
+1. 完了
+
+これで、以下の様なファイル構造になればOKです
+
+![ファイル構造2](scs-base-2.png)
+
+ではこの上で以下のようなコードを書いてみましょう
+
 ```java
+package gameprog;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -283,7 +321,7 @@ class Main {
 		// 追加
 		try{
 			// このtryの中で画像を読み込む
-			dman = ImageIO.read(new File("d3.png"));
+			dman = ImageIO.read(new File("src/d3.png"));
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -315,8 +353,6 @@ class Main {
 
 D言語くん(d3.png)がウィンドウに表示されると思います
 
-![D言語くん](d3.png)
-
 画像はImage型で保存しておきます
 
 これは無限ループで毎回ファイルから読み込む必要はなく、一度だけ読みこめばいくらでも再利用できるので、ループの前に代入してしまいます
@@ -344,6 +380,8 @@ g2.drawImage(img,x,y,w,h,fr) で、imgの画像をdrawRect同様に描画しま�
 そして、すべての書き込みが終わった後で、その画像をウィンドウに書き込みましょう
 
 ```java
+package gameprog;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -378,7 +416,7 @@ class Main {
 
 		try{
 			// このtryの中で画像を読み込む
-			dman = ImageIO.read(new File("d3.png"));
+			dman = ImageIO.read(new File("src/d3.png"));
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -433,6 +471,8 @@ bufという変数に仮の画面を表す画像を用意しておきます
 おまじないです
 
 ```java
+package gameprog;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -478,7 +518,7 @@ class Main {
 
 		try{
 			// このtryの中で画像を読み込む
-			dman = ImageIO.read(new File("d3.png"));
+			dman = ImageIO.read(new File("src/d3.png"));
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -539,6 +579,17 @@ class Main {
 }
 ```
 
+簡単に説明すると、ウィンドウのキーリスナーに自作クラスを登録して、キーイベントを受け取るようにしています。
+
+受け取ったキーイベントを配列に格納し、前の状態と合わせて持つことで、「今押されているか」「今この瞬間押されたか」を判定できるようになります
+
+小難しいことなしに、このように追記すると 
+
+- isPressed(KeyEvent.VK_Z)でZキーが押されているかどうか
+- onPressed(KeyEvent.VK_ENTER)で今エンターキーが押されたかどうか
+
+が取得できます。これを用いることでプレイヤーがゲームを操作できるようになります
+
 ## まとめ
 
 このパートではついにJavaのプログラムでウィンドウの表示、無限ループによる処理の継続、様々なものの描画ができるようになりました。
@@ -592,7 +643,7 @@ class Main {
 
 		try{
 			// このtryの中で画像を読み込む
-			dman = ImageIO.read(new File("d3.png"));
+			dman = ImageIO.read(new File("src/d3.png"));
 		}catch(Exception e){
 			e.printStackTrace();
 		}
