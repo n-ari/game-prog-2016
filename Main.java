@@ -1,15 +1,16 @@
 import java.awt.*;
 import javax.swing.*;
-import java.awt.image.BufferedImage;
 
 import java.io.File;
 import javax.imageio.ImageIO;
 
+import java.awt.image.BufferedImage;
+
 import java.awt.event.*;
 
-class Test {
+class Main {
   public static void main(String[] args){
-    (new Test()).run();
+    (new Main()).run();
   }
   public JFrame fr;
   public BufferedImage buf;
@@ -68,26 +69,28 @@ class Test {
   public int x = 0;
   public void move(){
     if(isPressed(KeyEvent.VK_Z)){
-      System.out.println("Hi");
+      x -= 3;
+    }
+    if(isPressed(KeyEvent.VK_X)){
+      x += 3;
     }
     Graphics2D g2 = (Graphics2D)buf.getGraphics();
     int w = dman.getWidth(null);
     int h = dman.getHeight(null);
     g2.drawImage(dman,x,0,w,h,null);
-    x += 3;
 
     g2.setColor(new Color(255,0,0));
     g2.fillRect(10,100,100,20);
-    
+
     g2.setColor(Color.blue);
     g2.drawOval(140,40,20,20);
-    
+
     g2.setColor(Color.green);
     g2.setFont(new Font(Font.SERIF, Font.PLAIN, 36));
     g2.drawString("D言語くん in Java",400,600);
   }
 
-
+  // 以下コピペ
   public boolean isPressed(int key){
     return keynow[key];
   }

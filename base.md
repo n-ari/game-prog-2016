@@ -375,6 +375,90 @@ bufという変数に仮の画面を表す画像を用意しておきます
 
 この技法を**ダブルバッファリング**と呼びます
 
+## キー入力
+
+おまじないです
+
+```java
+import java.awt.*;
+import javax.swing.*;
+
+import java.io.File;
+import javax.imageio.ImageIO;
+
+import java.awt.image.BufferedImage;
+
+import java.awt.event.*;            // 追加
+
+class Main {
+  public static void main(String[] args){
+    (new Main()).run();
+  }
+  public JFrame fr;
+  public BufferedImage buf;
+  public boolean[] keybef, keynow, keynext;       // 追加
+  public Image dman;
+  public void run(){
+    buf = new BufferedImage(800,600,BufferedImage.TYPE_INT_ARGB);
+
+    // 追加
+    keybef = new boolean[256];
+    keynow = new boolean[256];
+    keynext = new boolean[256];
+    for(int i=0;i<256;++i)
+      keybef[i] = keynow[i] = keynext[i] = false;
+
+    // (中略)
+
+    // サイズ調整
+    fr.pack();
+    // キーリスナー登録
+    fr.addKeyListener(new keyclass());        // 追加
+
+    // (中略)
+
+    // 無限ループ
+    while(true){
+      for(int i=0;i<256;++i){     // 追加
+        keybef[i] = keynow[i];    // 追加
+        keynow[i] = keynext[i];   // 追加
+      }                           // 追加
+
+      // (中略)
+    }
+  }
+  public void move(){
+    // 変更
+    if(onPressed(KeyEvent.VK_Z)){
+      System.out.println("Pushed");
+    }
+    if(isPressed(KeyEvent.VK_X)){
+      System.out.println("Pushing...");
+    }
+  }
+
+  // 以下コピペ
+  public boolean isPressed(int key){
+    return keynow[key];
+  }
+  public boolean onPressed(int key){
+    return !keybef[key] && keynow[key];
+  }
+  public class keyclass implements KeyListener {
+    @Override
+    public void keyTyped(KeyEvent e) {}
+    @Override
+    public void keyPressed(KeyEvent e) {
+      keynext[e.getKeyCode()] = true;
+    }
+    @Override
+    public void keyReleased(KeyEvent e) {
+      keynext[e.getKeyCode()] = false;
+    }
+  }
+}
+```
+
 ## まとめ
 
 このパートではついにJavaのプログラムでウィンドウの表示、無限ループによる処理の継続、様々なものの描画ができるようになりました。
@@ -392,15 +476,24 @@ import javax.imageio.ImageIO;
 
 import java.awt.image.BufferedImage;
 
+import java.awt.event.*;
+
 class Main {
   public static void main(String[] args){
     (new Main()).run();
   }
   public JFrame fr;
   public BufferedImage buf;
+  public boolean[] keybef, keynow, keynext;
   public Image dman;
   public void run(){
     buf = new BufferedImage(800,600,BufferedImage.TYPE_INT_ARGB);
+
+    keybef = new boolean[256];
+    keynow = new boolean[256];
+    keynext = new boolean[256];
+    for(int i=0;i<256;++i)
+      keybef[i] = keynow[i] = keynext[i] = false;
 
     // ウィンドウ生成
     fr = new JFrame();
@@ -414,6 +507,8 @@ class Main {
     fr.setVisible(true);
     // サイズ調整
     fr.pack();
+    // キーリスナー登録
+    fr.addKeyListener(new keyclass());
 
     try{
       dman = ImageIO.read(new File("d3.png"));
@@ -423,6 +518,10 @@ class Main {
 
     // 無限ループ
     while(true){
+      for(int i=0;i<256;++i){
+        keybef[i] = keynow[i];
+        keynow[i] = keynext[i];
+      }
       Graphics2D g2 = (Graphics2D)buf.getGraphics();
       g2.setColor(Color.white);
       g2.fillRect(0,0,800,600);
@@ -439,11 +538,16 @@ class Main {
   }
   public int x = 0;
   public void move(){
+    if(isPressed(KeyEvent.VK_Z)){
+      x -= 3;
+    }
+    if(isPressed(KeyEvent.VK_X)){
+      x += 3;
+    }
     Graphics2D g2 = (Graphics2D)buf.getGraphics();
     int w = dman.getWidth(null);
     int h = dman.getHeight(null);
     g2.drawImage(dman,x,0,w,h,null);
-    x += 3;
 
     g2.setColor(new Color(255,0,0));
     g2.fillRect(10,100,100,20);
@@ -454,6 +558,26 @@ class Main {
     g2.setColor(Color.green);
     g2.setFont(new Font(Font.SERIF, Font.PLAIN, 36));
     g2.drawString("D言語くん in Java",400,600);
+  }
+
+  // 以下コピペ
+  public boolean isPressed(int key){
+    return keynow[key];
+  }
+  public boolean onPressed(int key){
+    return !keybef[key] && keynow[key];
+  }
+  public class keyclass implements KeyListener {
+    @Override
+    public void keyTyped(KeyEvent e) {}
+    @Override
+    public void keyPressed(KeyEvent e) {
+      keynext[e.getKeyCode()] = true;
+    }
+    @Override
+    public void keyReleased(KeyEvent e) {
+      keynext[e.getKeyCode()] = false;
+    }
   }
 }
 ```
