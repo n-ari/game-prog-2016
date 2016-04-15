@@ -501,7 +501,7 @@ float rnd = (float)Math.random();
 
 というわけで、一応名目上「弾幕ゲー」が完成しました！
 
-## Extend 課題
+## Extra 課題
 
 さて、†弾幕ゲー†ができてしまったわけですが、まだ物足りないという人へ、このゲームの改善点をいくつか上げてみたいと思います
 
@@ -511,6 +511,7 @@ float rnd = (float)Math.random();
 1. 特に意味は無いけどD言語くんの画像を回転させてみたい！
 1. 弾が生成される速度を上げたり下げたりしたい！
 1. 弾も画像を使って描画したい！
+1. 当たり判定を表示したい！
 1. などなど...
 
 いっぱいありますね。これ以外にも思いつく改善点はいくつもあると思います。
@@ -552,7 +553,7 @@ import java.awt.event.*;
 
 import java.util.ArrayList;
 
-class Main {
+public class Main {
     public static void main(String[] args){
         (new Main()).run();
     }

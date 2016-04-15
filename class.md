@@ -7,7 +7,7 @@
 ## 例
 
 ```java
-class Sushi {
+public class Sushi {
 	public String sushiName;
 	public int cost;
 	public int createdAt;
@@ -19,7 +19,7 @@ class Sushi {
 		this.yummy = yummy;
 	}
 }
-class Main {
+public class Main {
 	public static void main(String[] args){
 		(new Main()).run();
 	}
@@ -44,7 +44,7 @@ class Main {
 ## 使わないと
 
 ```java
-class Main {
+public class Main {
 	public static void main(String[] args){
 		(new Main()).run();
 	}
@@ -68,14 +68,14 @@ class Main {
 
 ## クラスを宣言
 
-class Main ~ は、実はクラスの宣言だった
+public class Main ~ は、実はクラスの宣言だった
 
 それと同じ感じで書けばクラスになる
 
 クラスの中では変数宣言とメソッド宣言ができる(Mainと同じ！)
 
 ```java
-class Sushi {
+public class Sushi {
 	public String sushiName;
 	public int cost, yummy;
 	public float getCostPerformance(){
@@ -96,7 +96,7 @@ class Sushi {
 ## オブジェクトを生成する
 
 ```java
-	// class Sushi が定義されているとする
+	// public class Sushi が定義されているとする
 	Sushi mysushi = new Sushi();
 ```
 
@@ -107,7 +107,7 @@ class Sushi {
 オブジェクトの中身には . (ドット、コロン)を使ってアクセスする
 
 ```java
-	// class Sushi, Sushi.cost が定義されているとする
+	// public class Sushi, Sushi.cost が定義されているとする
 	System.out.println(mysushi.cost);
 ```
 
@@ -129,7 +129,7 @@ class Hello {								 // <- Hello クラス
 		x = 3;
 	}
 }
-class Main {
+public class Main {
 	public static void main(String[] args){
 		Hello w = new Hello("World!");		// コンストラクタの引数に "World!" を渡している
 		// ↑の文が実行されるとHelloクラスのコンストラクタが呼び出される
@@ -161,7 +161,7 @@ class Usamin {
 		// 初期化処理
 	}
 }
-class Main {
+public class Main {
 	public static void main(String[] args){
 		Usamin usa = new Usamin();
 		System.out.println(usa.age);			// 出来る
@@ -193,7 +193,7 @@ static とは 静的メンバ をあらわす修飾子
 まずはコードを見よう
 
 ```java
-class Sushi {
+public class Sushi {
 	public int cost;
 	private int id;
 	public Sushi(){
@@ -218,7 +218,7 @@ class Maguro extends Sushi {
 	}
 }
 
-class Main {
+public class Main {
 	public static void main(String[] args){ (new Main()).run(); }
 	public void run(){
 		Sushi s1 = new Sushi();	 // Sushi型の変数s1にSushiクラスのオブジェクトを代入
@@ -243,6 +243,7 @@ class Main {
 
 - 継承したクラスのコンストラクタ内では親クラスのコンストラクタを呼ぶということが必要
 - そのために super というメソッドが存在し、それは親クラスのコンストラクタそのもの
+- super は、コンストラクタ内の最初に書かなきゃいけない
 
 ---
 

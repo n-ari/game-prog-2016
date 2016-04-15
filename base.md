@@ -23,7 +23,7 @@
 プログラミング入門では何をやりました？
 
 ```java
-class Main {
+public class Main {
 	public static void main(String[] args){
 		System.out.println("Hello, World!");
 		Scanner sc = new Scanner(System.in);
@@ -77,7 +77,7 @@ package gameprog;
 import java.awt.*;
 import javax.swing.*;
 
-class Main {
+public class Main {
 	public static void main(String[] args){
 		(new Main()).run(); // non-static
 	}
@@ -298,7 +298,7 @@ import javax.swing.*;
 import java.io.File;					// 追加
 import javax.imageio.ImageIO;			// 追加
 
-class Main {
+public class Main {
 	public static void main(String[] args){
 		(new Main()).run();
 	}
@@ -390,7 +390,7 @@ import javax.imageio.ImageIO;
 
 import java.awt.image.BufferedImage;			// 追加
 
-class Main {
+public class Main {
 	public static void main(String[] args){
 		(new Main()).run();
 	}
@@ -483,7 +483,7 @@ import java.awt.image.BufferedImage;
 
 import java.awt.event.*;								// 追加
 
-class Main {
+public class Main {
 	public static void main(String[] args){
 		(new Main()).run();
 	}
@@ -611,7 +611,7 @@ import java.awt.image.BufferedImage;
 
 import java.awt.event.*;
 
-class Main {
+public class Main {
 	public static void main(String[] args){
 		(new Main()).run();
 	}
