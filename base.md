@@ -534,105 +534,105 @@ import javax.imageio.ImageIO;
 
 import java.awt.image.BufferedImage;
 
-import java.awt.event.*;                                // 🍣追加🍣
+import java.awt.event.*;								// 🍣追加🍣
 
 public class Main {
-    public static void main(String[] args){
-        (new Main()).run();
-    }
-    public JFrame fr;
-    public BufferedImage buf;
-    public boolean[] keybef, keynow, keynext;           // 🍣追加🍣
-    public Image dman;
-    public void run(){
-        buf = new BufferedImage(800,600,BufferedImage.TYPE_INT_ARGB);
+	public static void main(String[] args){
+		(new Main()).run();
+	}
+	public JFrame fr;
+	public BufferedImage buf;
+	public boolean[] keybef, keynow, keynext;		   // 🍣追加🍣
+	public Image dman;
+	public void run(){
+		buf = new BufferedImage(800,600,BufferedImage.TYPE_INT_ARGB);
 
-        // 🍣追加🍣
-        keybef = new boolean[256];
-        keynow = new boolean[256];
-        keynext = new boolean[256];
-        for(int i=0;i<256;++i)
-            keybef[i] = keynow[i] = keynext[i] = false;
+		// 🍣追加🍣
+		keybef = new boolean[256];
+		keynow = new boolean[256];
+		keynext = new boolean[256];
+		for(int i=0;i<256;++i)
+			keybef[i] = keynow[i] = keynext[i] = false;
 
-        // ウィンドウ生成
-        fr = new JFrame("タイトル");
-        // 閉じるボタンの挙動設定
-        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // ウィンドウサイズ変更不可に
-        fr.setResizable(false);
-        // ウィンドウの中身のサイズを調節 ここでは横800 x 縦600
-        fr.getContentPane().setPreferredSize(new Dimension(800, 600));
-        // 表示
-        fr.setVisible(true);
-        // サイズ調整
-        fr.pack();
-        // キーリスナー登録
-        fr.addKeyListener(new keyclass());              // 🍣追加🍣
+		// ウィンドウ生成
+		fr = new JFrame("タイトル");
+		// 閉じるボタンの挙動設定
+		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// ウィンドウサイズ変更不可に
+		fr.setResizable(false);
+		// ウィンドウの中身のサイズを調節 ここでは横800 x 縦600
+		fr.getContentPane().setPreferredSize(new Dimension(800, 600));
+		// 表示
+		fr.setVisible(true);
+		// サイズ調整
+		fr.pack();
+		// キーリスナー登録
+		fr.addKeyListener(new keyclass());			  // 🍣追加🍣
 
-        try{
-            // このtryの中で画像を読み込む
-            dman = ImageIO.read(new File("src/d3.png"));
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+		try{
+			// このtryの中で画像を読み込む
+			dman = ImageIO.read(new File("src/d3.png"));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 
-        // 無限ループ
-        while(true){
-            long beg = System.nanoTime();
-            for(int i=0;i<256;++i){         // 🍣追加🍣
-                keybef[i] = keynow[i];      // 🍣追加🍣
-                keynow[i] = keynext[i];     // 🍣追加🍣
-            }
-            Graphics2D g2 = (Graphics2D)buf.getGraphics();
-            g2.setColor(Color.white);
-            g2.fillRect(0,0,800,600);
-            move();
-            g2 = (Graphics2D)fr.getContentPane().getGraphics();
-            g2.drawImage(buf,0,0,fr);
-            // 60FPS用
-            long range = System.nanoTime() - beg;
-            long sleeptime = (16666666L - range)/1000000L;
-            if(sleeptime < 0) sleeptime = 0;
-            try{
-                Thread.sleep(sleeptime);
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-    }
+		// 無限ループ
+		while(true){
+			long beg = System.nanoTime();
+			for(int i=0;i<256;++i){		 // 🍣追加🍣
+				keybef[i] = keynow[i];	  // 🍣追加🍣
+				keynow[i] = keynext[i];	 // 🍣追加🍣
+			}
+			Graphics2D g2 = (Graphics2D)buf.getGraphics();
+			g2.setColor(Color.white);
+			g2.fillRect(0,0,800,600);
+			move();
+			g2 = (Graphics2D)fr.getContentPane().getGraphics();
+			g2.drawImage(buf,0,0,fr);
+			// 60FPS用
+			long range = System.nanoTime() - beg;
+			long sleeptime = (16666666L - range)/1000000L;
+			if(sleeptime < 0) sleeptime = 0;
+			try{
+				Thread.sleep(sleeptime);
+			} catch (Exception e){
+				e.printStackTrace();
+			}
+		}
+	}
 
-    // 🍣追加🍣
-    public boolean isPressed(int key){
-        return keynow[key];
-    }
-    public boolean onPressed(int key){
-        return !keybef[key] && keynow[key];
-    }
-    public class keyclass implements KeyListener {
-        @Override
-        public void keyTyped(KeyEvent e) {}
-        @Override
-        public void keyPressed(KeyEvent e) {
-            keynext[e.getKeyCode()] = true;
-        }
-        @Override
-        public void keyReleased(KeyEvent e) {
-            keynext[e.getKeyCode()] = false;
-        }
-    }
+	// 🍣追加🍣
+	public boolean isPressed(int key){
+		return keynow[key];
+	}
+	public boolean onPressed(int key){
+		return !keybef[key] && keynow[key];
+	}
+	public class keyclass implements KeyListener {
+		@Override
+		public void keyTyped(KeyEvent e) {}
+		@Override
+		public void keyPressed(KeyEvent e) {
+			keynext[e.getKeyCode()] = true;
+		}
+		@Override
+		public void keyReleased(KeyEvent e) {
+			keynext[e.getKeyCode()] = false;
+		}
+	}
 
-    // この下を頻繁に切り貼りします
-    public void move(){
-        // 🍣変更🍣
-    	Graphics2D g2 = (Graphics2D)buf.getGraphics();
-        if(onPressed(KeyEvent.VK_Z)){
-        	g2.drawImage(dman, 0, 0, dman.getWidth(fr), dman.getHeight(fr), fr);
-        }
-        if(isPressed(KeyEvent.VK_X)){
-        	g2.setColor(Color.blue);
-        	g2.fillRect(300, 100, 100, 400);
-        }
-    }
+	// この下を頻繁に切り貼りします
+	public void move(){
+		// 🍣変更🍣
+		Graphics2D g2 = (Graphics2D)buf.getGraphics();
+		if(onPressed(KeyEvent.VK_Z)){
+			g2.drawImage(dman, 0, 0, dman.getWidth(fr), dman.getHeight(fr), fr);
+		}
+		if(isPressed(KeyEvent.VK_X)){
+			g2.setColor(Color.blue);
+			g2.fillRect(300, 100, 100, 400);
+		}
+	}
 }
 ```
 
