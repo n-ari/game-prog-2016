@@ -89,7 +89,7 @@
 		float sec = (float)time/60f;
 		g2.setFont(new Font(Font.SERIF, Font.PLAIN, 24));
 		g2.setColor(Color.black);
-		g2.drawString(String.format("%.4f秒",sec),0,25);
+		g2.drawString(String.format("%.5f秒",sec),0,25);
 	}
 ```
 
@@ -101,7 +101,7 @@ time という変数を定義し、move一回につきtimeの値が1増えます
 
 また、String.formatというメソッドでは、変数を*いい感じに*整形してくれます
 
-今回は、%.4fという部分で、float型の変数の値を小数点以下4桁で文字列に展開、ということをしています
+今回は、%.5fという部分で、float型の変数の値を小数点以下4桁で文字列に展開、ということをしています
 
 ## タイトル画面とリザルト画面とシーン遷移と
 
